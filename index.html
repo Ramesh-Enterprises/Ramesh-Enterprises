@@ -6,193 +6,168 @@
   <title>Ramesh Enterprises</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff8f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff8ef;
       margin: 0;
       padding: 0;
-      color: #222;
       cursor: url('https://cur.cursors-4u.net/mechanics/mec-2/mec172.cur'), auto;
     }
 
     header {
-      background-color: #ff6347;
+      background-color: #ff914d;
       color: white;
       padding: 20px;
       text-align: center;
+      font-size: 24px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.2em;
+    nav {
+      background-color: #ffa366;
+      text-align: center;
+      padding: 10px;
     }
 
-    header p {
-      font-size: 1.1em;
-      margin-top: 5px;
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
     }
 
     section {
-      padding: 40px 20px;
+      padding: 30px;
     }
 
     h2 {
-      text-align: center;
-      font-size: 2em;
-      color: #333;
-      margin-bottom: 20px;
+      color: #ff5e00;
+      border-bottom: 2px solid #ff914d;
+      padding-bottom: 5px;
     }
 
-    .image-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .image-grid img {
+    .products img,
+    .about img {
       width: 200px;
-      height: 300px;
+      height: 250px;
       object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 10px;
       transition: transform 0.3s ease;
     }
 
-    .image-grid img:hover {
-      transform: scale(1.1);
-    }
-
-    p {
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
-      font-size: 1.1em;
-      color: #444;
-    }
-
-    .contact {
-      text-align: center;
-      padding: 30px 10px;
-      background-color: #ffe4dc;
-    }
-
-    .contact p {
-      margin: 10px 0;
+    .products img:hover,
+    .about img:hover {
+      transform: scale(1.05);
     }
 
     footer {
-      background-color: #ff6347;
+      background-color: #ff914d;
       color: white;
-      padding: 10px;
       text-align: center;
+      padding: 15px;
+      margin-top: 40px;
     }
 
-    ul {
+    .menu-section ul {
       list-style: none;
       padding-left: 0;
     }
 
-    li {
-      margin-bottom: 10px;
-      font-size: 1.1em;
+    .menu-section ul li {
+      padding: 5px 0;
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
-    <h1>Ramesh Enterprises</h1>
-    <p>Delivering top quality products all the time. Purchase to have a happy day.</p>
+    Ramesh Enterprises - Delivering top quality products all the time. Purchase to have a happy day
   </header>
 
-  <section>
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#products">Products</a>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
     <h2>About Us</h2>
-    <div class="image-grid">
-      <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png" alt="About Us">
-    </div>
-    <p>
-      Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.
-      <br><br>
-      Founded on principles of creativity, collaboration, and bold experimentation, Ramesh Enterprises has grown from a passionate initiative into a dynamic identity recognized for its unique approach to branding and audience involvement. Our offerings reflect a balance of structure and expressive flair, aimed at making a meaningful impact across digital and physical spaces.
-      <br><br>
-      🌟 Our Values<br>
-      - Authentic expression rooted in cultural richness<br>
-      - Design that blends clarity, relatability, and innovation<br>
-      - Community-driven creativity with an emphasis on participation and shared identity<br>
-      - A spirit of continuous refinement and reinvention
-      <br><br>
-      Whether it’s a truck rolling through an animation loop, a dosa-themed evening quote, or a new honorary role in our community space—Ramesh Enterprises is driven by ideas, powered by people, and designed to make a lasting impression.
-    </p>
-  </section>
-
-  <section>
-    <h2>Products</h2>
-    <p>
-      At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.
-      <br><br>
-      From the smart utility of our Ramesh Phones to the athletic power packed into our Ramesh Sports Kits, and even the sturdy elegance of a well-crafted Ramesh Bullock Cart, each product reflects our dedication to quality, character, and a distinctly Indian spirit.
-      <br><br>
-      We blend purpose with personality, tradition with tech, and storytelling with substance. Because in our world, even a bullock cart comes with legacy wheels.
-      <br><br>
-      Whether you're picking a phone that connects dreams, a sports kit that fuels performance, or a cart that rolls with heritage—Ramesh Enterprises delivers with style, reliability, and just the right dose of eccentricity.
-    </p>
-    <div class="image-grid">
-      <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 1">
-      <img src="https://static.wixstatic.com/media/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png" alt="Product 2">
-      <img src="https://static.wixstatic.com/media/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png" alt="Product 3">
-      <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Product 4">
-      <img src="https://static.wixstatic.com/media/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png" alt="Product 5">
-      <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 6">
-    </div>
-  </section>
-
-  <section>
-    <h2>Menu</h2>
-    <p>
-      Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.
-      <br><br>
-      Whether you’re here for a quick bite or a full feast, our menu celebrates India’s vibrant palate with creative twists and nostalgic comfort. Expect spice, soul, and a sprinkle of Ramesh magic.
-      <br><br>
-      Because at Ramesh Restaurants, dining isn't just an act—it's a lifestyle.
-    </p>
+    <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
+    <p>Founded on principles of creativity, collaboration, and bold experimentation, Ramesh Enterprises has grown from a passionate initiative into a dynamic identity recognized for its unique approach to branding and audience involvement. Our offerings reflect a balance of structure and expressive flair, aimed at making a meaningful impact across digital and physical spaces.</p>
     <ul>
-      <li>🥞 <strong>The Signature Dosa Series</strong></li>
-      <li>Classic Golden Dosa</li>
-      <li>Paneer Masala Dosa</li>
-      <li>The Evening Legend Dosa (with sunset chutney)</li>
-      <br>
-      <li>🍛 <strong>Main Courses</strong></li>
-      <li>Ramesh’s Mango Pulav</li>
-      <li>Rickshaw Rider Thali (includes 5 spicy sides)</li>
-      <li>Bullock Cart Biryani (slow cooked, legacy packed)</li>
-      <br>
-      <li>🥤 <strong>Drinks & Coolers</strong></li>
-      <li>Ramein Gainz Protein Shake</li>
-      <li>Lemon Shikanji with Chat Vibes</li>
-      <li>Mango Lassi Supreme™</li>
-      <br>
-      <li>🍮 <strong>Desserts</strong></li>
-      <li>Lorry-Wheel Jalebi</li>
-      <li>Rasmalai Royale</li>
-      <li>Ramesh’s Rasgulla Rampage (3-in-one burst)</li>
-      <br>
-      <li>🧂 <strong>Extras & Add-ons</strong></li>
-      <li>Chutney Flight: Coconut, Mint, Tomato</li>
-      <li>Special Sambhar Shot</li>
-      <li>Dosa Fold Customization (single, double, Ramesh-style wrap)</li>
+      <li>🌟 <strong>Authentic expression</strong> rooted in cultural richness</li>
+      <li>🌟 <strong>Design</strong> that blends clarity, relatability, and innovation</li>
+      <li>🌟 <strong>Community-driven creativity</strong> with an emphasis on participation and shared identity</li>
+      <li>🌟 A spirit of continuous refinement and reinvention</li>
     </ul>
+    <p>Whether it’s a truck rolling through an animation loop, a dosa-themed evening quote, or a new honorary role in our community space—Ramesh Enterprises is driven by ideas, powered by people, and designed to make a lasting impression.</p>
+    <div class="about">
+      <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png/v1/fill/w_480,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png" alt="About Us" />
+    </div>
   </section>
 
-  <div class="contact">
-    <h2>Contact Us</h2>
+  <section id="products">
+    <h2>Products</h2>
+    <p>At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
+    <p>From the smart utility of our Ramesh Phones to the athletic power packed into our Ramesh Sports Kits, and even the sturdy elegance of a well-crafted Ramesh Bullock Cart, each product reflects our dedication to quality, character, and a distinctly Indian spirit.</p>
+    <p>We blend purpose with personality, tradition with tech, and storytelling with substance. Because in our world, even a bullock cart comes with legacy wheels.</p>
+    <p>Whether you're picking a phone that connects dreams, a sports kit that fuels performance, or a cart that rolls with heritage—Ramesh Enterprises delivers with style, reliability, and just the right dose of eccentricity.</p>
+    <div class="products">
+      <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 1"/>
+      <img src="https://static.wixstatic.com/media/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png" alt="Product 2"/>
+      <img src="https://static.wixstatic.com/media/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png" alt="Product 3"/>
+      <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Product 4"/>
+      <img src="https://static.wixstatic.com/media/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png" alt="Product 5"/>
+      <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 6"/>
+    </div>
+  </section>
+
+  <section id="menu">
+    <h2>Menu</h2>
+    <p>Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.</p>
+    <p>Whether you’re here for a quick bite or a full feast, our menu celebrates India’s vibrant palate with creative twists and nostalgic comfort. Expect spice, soul, and a sprinkle of Ramesh magic.</p>
+    <p>Because at Ramesh Restaurants, dining isn't just an act—it's a lifestyle.</p>
+
+    <div class="menu-section">
+      <h3>🥞 The Signature Dosa Series</h3>
+      <ul>
+        <li>Classic Golden Dosa</li>
+        <li>Paneer Masala Dosa</li>
+        <li>The Evening Legend Dosa (with sunset chutney)</li>
+      </ul>
+
+      <h3>🍛 Main Courses</h3>
+      <ul>
+        <li>Ramesh’s Mango Pulav</li>
+        <li>Rickshaw Rider Thali (includes 5 spicy sides)</li>
+        <li>Bullock Cart Biryani (slow cooked, legacy packed)</li>
+      </ul>
+
+      <h3>🥤 Drinks & Coolers</h3>
+      <ul>
+        <li>Ramein Gainz Protein Shake</li>
+        <li>Lemon Shikanji with Chat Vibes</li>
+        <li>Mango Lassi Supreme™</li>
+      </ul>
+
+      <h3>🍮 Desserts</h3>
+      <ul>
+        <li>Lorry-Wheel Jalebi</li>
+        <li>Rasmalai Royale</li>
+        <li>Ramesh’s Rasgulla Rampage (3-in-one burst)</li>
+      </ul>
+
+      <h3>🧂 Extras & Add-ons</h3>
+      <ul>
+        <li>Chutney Flight: Coconut, Mint, Tomato</li>
+        <li>Special Sambhar Shot</li>
+        <li>Dosa Fold Customization (single, double, Ramesh-style wrap)</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer id="contact">
     <p><strong>Phone:</strong> 99785-RAMESH</p>
     <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Ramesh Enterprises™. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
