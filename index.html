@@ -3,25 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ramesh Products</title>
+  <title>Ramesh Universe</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #fefefe;
-      color: #222;
       margin: 0;
+      padding: 0;
+      background-color: #fffdf7;
+      color: #222;
     }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+    header {
+      background-color: #fff0e5;
+      padding: 20px;
+      text-align: center;
     }
 
-    p {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      background-color: #222;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
     .product-grid {
@@ -62,51 +82,56 @@
       color: #555;
     }
 
-    .contact-section {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
 
-    .contact-section h2 {
-      font-size: 1.8rem;
-      color: #333;
-    }
-
-    .contact-section p,
     .contact-section a {
-      font-size: 1rem;
-      color: #0066cc;
+      color: #ffb347;
       text-decoration: none;
+      font-weight: bold;
     }
 
     .contact-section a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .product-item h3 {
-        font-size: 1.1rem;
-      }
-
-      .product-item p,
-      .contact-section p {
-        font-size: 0.9rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <section>
+  <header>
+    <h1>Welcome to the Ramesh Universe</h1>
+    <p>The multiverse of madness, mischief, and mineral water™</p>
+  </header>
+
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="products">
     <h2>Products</h2>
     <p>Our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
 
     <div class="product-grid">
+      <div class="product-item">
+        <h3>Ramesh Cola</h3>
+        <p>The classic fizz with 200% extra drama.</p>
+      </div>
+      <div class="product-item">
+        <h3>Ramesh Noodles</h3>
+        <p>Boils in 2 minutes, lives forever in your heart.</p>
+      </div>
+      <div class="product-item">
+        <h3>Ramesh PowerBank</h3>
+        <p>Never runs out, even when your emotions do.</p>
+      </div>
+
+      <!-- 🆕 Added working product images below -->
+
       <div class="product-item">
         <img src="https://i.imgur.com/lBrV0WY.png" alt="Ramesh Tellybean" />
         <h3>Ramesh Tellybean™</h3>
@@ -120,10 +145,18 @@
     </div>
   </section>
 
-  <section class="contact-section">
+  <section id="contact" class="contact-section">
     <h2>Contact</h2>
-    <p>Join our community on <a href="https://discord.gg/WVnuXUabzg" target="_blank" rel="noopener noreferrer">Discord</a> to stay updated, chat with Ramesh fans, or ask any questions.</p>
+    <p>Join our community on 
+      <a href="https://discord.gg/WVnuXUabzg" target="_blank" rel="noopener noreferrer">
+        Discord
+      </a> to stay updated, chat with Ramesh fans, or ask any questions.
+    </p>
   </section>
+
+  <footer>
+    <p>© 2025 Ramesh Corp. All rights preserved™</p>
+  </footer>
 
 </body>
 </html>
