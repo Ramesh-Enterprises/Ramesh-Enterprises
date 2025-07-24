@@ -1,140 +1,228 @@
-<!-- Chatbot Button & Popup -->
-<style>
-  #chat-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ff9800;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  }
-
-  #chat-popup {
-    display: none;
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 320px;
-    max-height: 400px;
-    background: white;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    z-index: 999;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  #chat-header {
-    background: #ff9800;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  #chat-messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    background: #fefefe;
-  }
-
-  #chat-input {
-    border: none;
-    border-top: 1px solid #ddd;
-    padding: 10px;
-    outline: none;
-  }
-</style>
-
-<button id="chat-toggle">💬</button>
-<div id="chat-popup">
-  <div id="chat-header">
-    RameshBot 🤖
-    <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:16px;">✖</button>
-  </div>
-  <div id="chat-messages"></div>
-  <input id="chat-input" type="text" placeholder="Type a message..." />
-</div>
-
-<script src="https://js.puter.com/v2/"></script>
-<script>
-  function toggleChat() {
-    const popup = document.getElementById('chat-popup');
-    popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
-  }
-  document.getElementById('chat-toggle').onclick = toggleChat;
-
-  async function initChat() {
-    await puter.ai.ready;
-    const chatInput = document.getElementById('chat-input');
-    const messages = document.getElementById('chat-messages');
-
-    function showMessage(sender, text) {
-      const wrapper = document.createElement('div');
-      wrapper.style.margin = '8px 0';
-      wrapper.style.padding = '8px';
-      wrapper.style.borderRadius = '8px';
-      wrapper.style.background = sender === 'You' ? '#e1f5fe' : '#ffe0b2';
-      wrapper.innerHTML = `<strong>${sender}:</strong> <span>${text}</span>`;
-      messages.appendChild(wrapper);
-      messages.scrollTop = messages.scrollHeight;
-      return wrapper.querySelector('span');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramesh Enterprises</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #222;
+      cursor: default;
     }
 
-    const customResponses = {
-      'hello': "Hello! Welcome to Ramesh Enterprises™. How can I assist you today?",
-      'menu': "We offer dosas, biryani, lassi, jalebi and more! Want the full menu?",
-      'order': "To place an order, visit our products section or call us at 99785-RAMESH.",
-      'contact': "You can find us at Ramesh Enterprises, Chitapalli Road."
-    };
+    header {
+      background-color: #e74c3c;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
 
-    chatInput.addEventListener('keydown', async (e) => {
-      if (e.key === 'Enter' && chatInput.value.trim()) {
-        const userText = chatInput.value.trim();
-        showMessage('You', userText);
-        chatInput.value = '';
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #c0392b;
+      padding: 10px;
+    }
 
-        const botSpan = showMessage('RameshBot 🤖', 'Typing...');
+    nav button {
+      background: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
 
-        let reply = Object.keys(customResponses).find(k => userText.toLowerCase().includes(k));
+    nav button:hover {
+      background: #ddd;
+    }
 
-        if (reply) {
-          let res = customResponses[reply];
-          let i = 0;
-          const typingInterval = setInterval(() => {
-            if (i <= res.length) {
-              botSpan.textContent = res.slice(0, i);
-              i++;
-            } else {
-              clearInterval(typingInterval);
-            }
-          }, 30);
-        } else {
-          const aiRes = await puter.ai.chat(userText);
-          let i = 0;
-          const typingInterval = setInterval(() => {
-            if (i <= aiRes.length) {
-              botSpan.textContent = aiRes.slice(0, i);
-              i++;
-            } else {
-              clearInterval(typingInterval);
-            }
-          }, 30);
-        }
-      }
-    });
+    section {
+      padding: 30px;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .product-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #eee;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Chatbot */
+    #chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    #chatbot-header {
+      background: #e74c3c;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    #chatbot-messages {
+      flex-grow: 1;
+      padding: 10px;
+      overflow-y: auto;
+      max-height: 200px;
+    }
+
+    #chatbot-input {
+      display: flex;
+    }
+
+    #chatbot-input input {
+      flex-grow: 1;
+      border: none;
+      padding: 10px;
+      outline: none;
+    }
+
+    #chatbot-input button {
+      background: #e74c3c;
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .bot, .user {
+      margin: 5px 0;
+    }
+
+    .bot {
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Ramesh Enterprises</h1>
+  <p>Delivering top quality products all the time. Purchase to have a happy day.</p>
+</header>
+
+<nav>
+  <button onclick="showSection('about')">About Us</button>
+  <button onclick="showSection('products')">Products</button>
+  <button onclick="showSection('menu')">Menu</button>
+  <button onclick="showSection('contact')">Contact</button>
+</nav>
+
+<section id="about" class="active">
+  <h2>About Us</h2>
+  <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
+  <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png/v1/fill/w_480,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png" style="max-width:300px; border-radius:10px;">
+</section>
+
+<section id="products">
+  <h2>Our Products</h2>
+  <p>From smart phones to bullock carts, we blend purpose with personality and tradition with tech.</p>
+  <div class="product-grid">
+    <img src="https://via.placeholder.com/200x250?text=Phone" />
+    <img src="https://via.placeholder.com/200x250?text=Sports+Kit" />
+    <img src="https://via.placeholder.com/200x250?text=Bullock+Cart" />
+    <img src="https://via.placeholder.com/200x250?text=New+Product" />
+  </div>
+</section>
+
+<section id="menu">
+  <h2>Ramesh Restaurants™</h2>
+  <p>Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.</p>
+
+  <ul>
+    <li><strong>🥞 The Signature Dosa Series</strong>: Golden Dosa, Paneer Masala Dosa, Evening Legend Dosa</li>
+    <li><strong>🍛 Main Courses</strong>: Mango Pulav, Rickshaw Rider Thali, Bullock Cart Biryani</li>
+    <li><strong>🥤 Drinks</strong>: Protein Shake, Lemon Shikanji, Mango Lassi Supreme™</li>
+    <li><strong>🍮 Desserts</strong>: Jalebi, Rasmalai Royale, Rasgulla Rampage</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>📍 Address: Ramesh Enterprises, Chitapalli Road</p>
+  <p>📞 Phone: 99785-RAMESH</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Ramesh Enterprises. All rights reserved.</p>
+</footer>
+
+<!-- Chatbot -->
+<div id="chatbot">
+  <div id="chatbot-header">Chat with us</div>
+  <div id="chatbot-messages">
+    <div class="bot">👋 Hi there! A staff member will be with you soon.</div>
+  </div>
+  <div id="chatbot-input">
+    <input type="text" id="user-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
   }
-  initChat();
+
+  function sendMessage() {
+    const input = document.getElementById('user-input');
+    const message = input.value.trim();
+    if (!message) return;
+    const messages = document.getElementById('chatbot-messages');
+    const userDiv = document.createElement('div');
+    userDiv.className = 'user';
+    userDiv.textContent = "🧑 " + message;
+    messages.appendChild(userDiv);
+
+    const botDiv = document.createElement('div');
+    botDiv.className = 'bot';
+    botDiv.textContent = "👨‍🔧 Thank you! Our staff will be with you shortly.";
+    messages.appendChild(botDiv);
+
+    input.value = "";
+    messages.scrollTop = messages.scrollHeight;
+  }
 </script>
+
+</body>
+</html>
