@@ -27,7 +27,6 @@
 
     h2 {
       color: #444;
-      margin-top: 0;
     }
 
     ul {
@@ -36,7 +35,7 @@
     }
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
     }
 
     .about-image {
@@ -47,35 +46,6 @@
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 1rem;
-    }
-
-    .product-item {
-      text-align: center;
-    }
-
-    .product-item img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 0.8rem;
-    }
-
-    .contact-section a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .contact-section a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
@@ -85,37 +55,26 @@
   <section>
     <h2>About Us</h2>
     <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
-    <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png/v1/fill/w_480,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png"
+
+    <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png/v1/fill/w_480,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png" 
          alt="Ramesh About Us" class="about-image" />
+
+    <!-- Added Images -->
+    <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953683664146462/3D859D1D-416C-4D5B-AADA-3FCE7B468292.png" alt="img1" />
+    <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953684188696596/CC997A99-3B81-4C08-BD76-D4BCC4D0B468.png" alt="img2" />
+    <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685023096962/57033F8D-F9D2-44F6-9458-036F75C348B9.png" alt="img3" />
+    <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685354582046/5C595128-86B5-4C8D-A249-6E7DAFBF1621.png" alt="img4" />
+    <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685669023874/image.png" alt="img5" />
+    <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685962621009/image.png" alt="img6" />
+    <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953686218608682/image.png" alt="img7" />
+    <img class="about-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAgCAYAAAD5VeO1AAAMRklEQVR4AQBdAKL/..." alt="img8" />
+    <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953734583128258/6F6FF840-75DC-4FCA-A7AE-F61B2B60E07C.png" alt="img9" />
+    <img class="about-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAgCAYAAAD5VeO1AAAMRklEQVR4AQBdAKL/..." alt="img10" />
   </section>
 
   <section>
     <h2>Products</h2>
     <p>Our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
-
-    <div class="product-grid">
-      <!-- Example product items -->
-      <div class="product-item">
-        <h3>Ramesh Dosa Kit</h3>
-        <p>Make your own dosa at home with our premium kit.</p>
-      </div>
-      <div class="product-item">
-        <h3>Ramesh Spice Pack</h3>
-        <p>Authentic spice blends to level up your cooking.</p>
-      </div>
-
-      <!-- ✅ Added working images -->
-      <div class="product-item">
-        <img src="https://i.imgur.com/lBrV0WY.png" alt="Ramesh Tellybean" />
-        <h3>Ramesh Tellybean™</h3>
-        <p>A limited-edition collectible bean straight from the minds of our legends. Tastes like telly and dreams.</p>
-      </div>
-      <div class="product-item">
-        <img src="https://i.imgur.com/2AOxRht.png" alt="Ramesh Water Supply" />
-        <h3>Ramesh Water Supply</h3>
-        <p>Minerally mysterious. Filtered through vibes and endorsed by legends. (Do not actually drink it.)</p>
-      </div>
-    </div>
   </section>
 
   <section>
@@ -152,25 +111,24 @@
     </ul>
   </section>
 
-  <section id="contact" class="contact-section">
+  <section>
     <h2>Contact</h2>
     <p><strong>Phone:</strong> 99785-RAMESH</p>
     <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
-    <p>Join our community on <a href="https://discord.gg/WVnuXUabzg" target="_blank" rel="noopener noreferrer">Discord</a> to stay updated, chat, or ask questions.</p>
   </section>
 
-  <!-- ✅ Tawk.to Live Chat -->
+  <!-- ✅ Tawk.to Live Chat Widget -->
   <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),
-          s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/68823c6ab325321919f710b2/1j0ubo0kk';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+    var s1=document.createElement("script"),
+        s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68823c6ab325321919f710b2/1j0ubo0kk';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+  })();
   </script>
 
 </body>
