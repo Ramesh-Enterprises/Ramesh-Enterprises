@@ -4,27 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ramesh Enterprises</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
+      background-color: #f4f9f9;
+      color: #2e2e2e;
+    }
+
+    header {
+      background: linear-gradient(135deg, #00897b, #00695c);
+      color: white;
+      padding: 60px 20px;
       text-align: center;
     }
-    header {
-      background-color: #004d40;
-      color: white;
-      padding: 40px 20px;
+
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
     }
+
+    header p {
+      font-size: 20px;
+      font-weight: 300;
+    }
+
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
+      text-align: center;
     }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #00695c;
+    }
+
     img {
       max-width: 90%;
       height: auto;
-      border-radius: 8px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
-    h2 {
-      color: #004d40;
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
   </style>
 </head>
@@ -41,7 +77,10 @@
 
   <section id="about">
     <h2>About Us</h2>
-    <p>Ramesh Enterprises is committed to offering the finest quality products with a focus on consistency and customer satisfaction.</p>
+    <p>
+      Ramesh Enterprises is committed to offering the finest quality products with a focus on consistency and customer satisfaction.
+    </p>
+    <br />
     <img src="about.jpg" alt="About Image" />
   </section>
 
@@ -55,5 +94,9 @@
     <img src="menu.jpg" alt="Menu Image" />
   </section>
 
-  <footer style="padding: 20px; background: #eee;">
-    <p>©
+  <footer>
+    <p>© 2025 Ramesh Enterprises | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
