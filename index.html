@@ -1,230 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ramesh Enterprises</title>
-  <style>
-    :root {
-      --bg-color: #fefaf1;
-      --text-color: #222;
-      --accent-color: #ffcc00;
-      --heading-color: #d35400;
-      --chat-bg: #fff7dc;
-      --chat-border: #ffc107;
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
+  }
+
+  const chatlog = document.getElementById("chatlog");
+  const userInput = document.getElementById("userInput");
+
+  userInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter" && userInput.value.trim() !== "") {
+      const msg = userInput.value.trim();
+      appendMessage("You", msg);
+      userInput.value = "";
+
+      const reply = getBotReply(msg);
+      showTypingEffect("Bot", reply);
     }
+  });
 
-    body.dark {
-      --bg-color: #1e1e1e;
-      --text-color: #eee;
-      --accent-color: #333;
-      --heading-color: #ff884d;
-      --chat-bg: #2c2c2c;
-      --chat-border: #555;
-    }
+  function appendMessage(sender, text) {
+    const p = document.createElement("p");
+    p.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    chatlog.appendChild(p);
+    chatlog.scrollTop = chatlog.scrollHeight;
+  }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: var(--accent-color);
-      padding: 15px 30px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav .left {
-      font-weight: bold;
-    }
-
-    nav .right {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    nav a {
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav button {
-      background: #000;
-      color: #fff;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h1, h2 {
-      color: var(--heading-color);
-    }
-
-    img.hero {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-
-    .chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: var(--chat-bg);
-      border: 2px solid var(--chat-border);
-      padding: 20px;
-      border-radius: 10px;
-      width: 300px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      font-size: 14px;
-      transition: background 0.3s, border 0.3s;
-    }
-
-    .chatlog {
-      height: 180px;
-      overflow-y: auto;
-      margin-bottom: 10px;
-      padding-right: 5px;
-    }
-
-    .chatlog p {
-      margin: 6px 0;
-    }
-
-    .chatbot input {
-      width: 100%;
-      padding: 8px;
-      font-size: 14px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    .bot-typing {
-      color: var(--heading-color);
-      font-style: italic;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <div class="left">Ramesh Enterprises</div>
-    <div class="right">
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
-      <button onclick="toggleTheme()">🌓 Toggle Theme</button>
-    </div>
-  </nav>
-
-  <section>
-    <img class="hero" src="https://placehold.co/1200x400?text=Welcome+to+Ramesh+Enterprises" alt="Banner" />
-  </section>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
-  </section>
-
-  <section id="products">
-    <h2>Our Products</h2>
-    <p>At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
-  </section>
-
-  <section id="menu">
-    <h2>Ramesh Restaurants™ Menu</h2>
-    <p>Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.</p>
-    <ul>
-      <li><strong>The Signature Dosa Series:</strong> Classic Golden Dosa, Paneer Masala Dosa, The Evening Legend Dosa</li>
-      <li><strong>Main Courses:</strong> Ramesh’s Mango Pulav, Rickshaw Rider Thali, Bullock Cart Biryani</li>
-      <li><strong>Drinks:</strong> Ramein Gainz Protein Shake, Lemon Shikanji, Mango Lassi Supreme™</li>
-      <li><strong>Desserts:</strong> Lorry-Wheel Jalebi, Rasmalai Royale, Ramesh’s Rasgulla Rampage</li>
-      <li><strong>Extras:</strong> Chutney Flight, Sambhar Shot, Dosa Fold Customization</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><strong>Phone:</strong> 99785-RAMESH</p>
-    <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
-  </section>
-
-  <div class="chatbot">
-    <div class="chatlog" id="chatlog"></div>
-    <input type="text" id="userInput" placeholder="Ask something...">
-  </div>
-
-  <script>
-    // Theme toggle logic
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-    }
-
-    // Chatbot logic
-    const chatlog = document.getElementById("chatlog");
-    const userInput = document.getElementById("userInput");
-
-    userInput.addEventListener("keypress", function (e) {
-      if (e.key === "Enter" && userInput.value.trim() !== "") {
-        const msg = userInput.value.trim();
-        appendMessage("You", msg);
-        userInput.value = "";
-
-        const reply = getBotReply(msg);
-        showTypingEffect("Bot", reply);
-      }
-    });
-
-    function appendMessage(sender, text) {
-      const p = document.createElement("p");
-      p.innerHTML = `<strong>${sender}:</strong> ${text}`;
-      chatlog.appendChild(p);
+  function showTypingEffect(sender, message) {
+    const p = document.createElement("p");
+    p.innerHTML = `<strong>${sender}:</strong> <span class="bot-typing"></span>`;
+    chatlog.appendChild(p);
+    let i = 0;
+    const span = p.querySelector("span");
+    const typing = setInterval(() => {
+      span.textContent += message[i];
+      i++;
       chatlog.scrollTop = chatlog.scrollHeight;
-    }
+      if (i >= message.length) clearInterval(typing);
+    }, 30);
+  }
 
-    function showTypingEffect(sender, message) {
-      const p = document.createElement("p");
-      p.innerHTML = `<strong>${sender}:</strong> <span class="bot-typing"></span>`;
-      chatlog.appendChild(p);
-      let i = 0;
-      const span = p.querySelector("span");
-      const typing = setInterval(() => {
-        span.textContent += message[i];
-        i++;
-        chatlog.scrollTop = chatlog.scrollHeight;
-        if (i >= message.length) clearInterval(typing);
-      }, 30);
-    }
+  const responses = {
+    greetings: [
+      "Hey there! How can I help you today?",
+      "Hello! Welcome to Ramesh Enterprises.",
+      "Hi! Feel free to ask me anything."
+    ],
+    food: [
+      "We serve everything from Dosas to Rasgullas. Hungry already?",
+      "Try our Signature Dosa Series or the Mango Pulav!",
+      "Our Bullock Cart Biryani is a fan favorite."
+    ],
+    contact: [
+      "You can call us at 99785-RAMESH.",
+      "Reach out anytime! Our contact is in the 'Contact' section.",
+      "Customer support is one call away: 99785-RAMESH."
+    ],
+    products: [
+      "We offer phones, gym kits, bullock carts — and dreams!",
+      "From protein shakes to thalis, we sell vibes.",
+      "Innovation meets culture in all our products."
+    ],
+    thanks: [
+      "You're welcome! Always happy to help.",
+      "Glad to assist. Let me know if you need more.",
+      "Anytime! Thanks for visiting Ramesh Enterprises."
+    ],
+    goodbye: [
+      "Goodbye! Hope to see you again!",
+      "Take care and come back soon!",
+      "Thanks for stopping by! 👋"
+    ],
+    fallback: [
+      "Hmm... I didn’t quite catch that. Could you try asking differently?",
+      "Interesting... but I’m not sure how to respond to that yet.",
+      "A team member might help better with that. Try something else for now?"
+    ]
+  };
 
-    function getBotReply(msg) {
-      const m = msg.toLowerCase();
-      if (m.includes("hi") || m.includes("hello")) return "Hello! How can I assist you today?";
-      if (m.includes("product")) return "We offer phones, sports kits, and even bullock carts!";
-      if (m.includes("menu") || m.includes("food") || m.includes("dosa")) return "Our menu has dosas, thalis, shakes, and desserts. You'll love it!";
-      if (m.includes("contact") || m.includes("phone") || m.includes("call")) return "You can reach us at 99785-RAMESH.";
-      if (m.includes("thanks")) return "You're welcome! Let me know if you need anything else.";
-      if (m.includes("bye")) return "Goodbye! Hope to serve you again!";
-      return "Hmm... I didn't get that. A team member will assist you soon.";
-    }
-  </script>
-</body>
-</html>
+  function getBotReply(msg) {
+    const m = msg.toLowerCase();
+
+    if (m.match(/(hi|hello|hey|greetings)/)) return randomFrom(responses.greetings);
+    if (m.match(/(menu|food|eat|dosa|biryani|rasgulla|restaurant|lunch|dinner)/)) return randomFrom(responses.food);
+    if (m.match(/(contact|call|phone|reach|number)/)) return randomFrom(responses.contact);
+    if (m.match(/(product|sell|buy|items|catalog)/)) return randomFrom(responses.products);
+    if (m.match(/(thank|thanks|thx)/)) return randomFrom(responses.thanks);
+    if (m.match(/(bye|goodbye|see you|later)/)) return randomFrom(responses.goodbye);
+
+    return randomFrom(responses.fallback);
+  }
+
+  function randomFrom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+</script>
