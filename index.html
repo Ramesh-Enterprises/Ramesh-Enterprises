@@ -2,148 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ramesh Enterprises</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramesh Products</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fff;
-      color: #333;
-    }
-
-    header {
-      background-color: #222;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      font-size: 2rem;
-    }
-
-    section {
-      padding: 2rem;
-      border-bottom: 1px solid #ccc;
+      padding: 20px;
+      background-color: #fefefe;
+      color: #222;
     }
 
     h2 {
-      color: #444;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
     }
 
-    li {
-      margin-bottom: 0.3rem;
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
 
-    .about-image {
-      display: block;
-      margin: 1rem auto;
-      max-width: 300px;
-      width: 100%;
+    .product-item {
+      background: #fff;
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+      padding: 16px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-item img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-item h3 {
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+      color: #d03c3c;
+    }
+
+    .product-item p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .product-item h3 {
+        font-size: 1.1rem;
+      }
+
+      .product-item p {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>Ramesh Enterprises™</header>
-
-  <section>
-    <h2>About Us</h2>
-    <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
-
-    <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png/v1/fill/w_480,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png" 
-         alt="Ramesh About Us" class="about-image" />
-  </section>
-
   <section>
     <h2>Products</h2>
     <p>Our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
 
-    <h3>The Signature Dosa Series:</h3>
-    <ul>
-      <li>Classic Golden Dosa</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953683664146462/3D859D1D-416C-4D5B-AADA-3FCE7B468292.png" alt="Golden Dosa" />
-
-      <li>Paneer Masala Dosa</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953684188696596/CC997A99-3B81-4C08-BD76-D4BCC4D0B468.png" alt="Paneer Dosa" />
-
-      <li>The Evening Legend Dosa</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685023096962/57033F8D-F9D2-44F6-9458-036F75C348B9.png" alt="Evening Legend Dosa" />
-    </ul>
-
-    <h3>Main Courses:</h3>
-    <ul>
-      <li>Ramesh’s Mango Pulav</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685354582046/5C595128-86B5-4C8D-A249-6E7DAFBF1621.png" alt="Mango Pulav" />
-
-      <li>Rickshaw Rider Thali</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685669023874/image.png" alt="Rickshaw Rider Thali" />
-
-      <li>Bullock Cart Biryani</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685962621009/image.png" alt="Bullock Cart Biryani" />
-    </ul>
-
-    <h3>Drinks:</h3>
-    <ul>
-      <li>Ramein Gainz Protein Shake</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953686218608682/image.png" alt="Ramein Gainz Shake" />
-
-      <li>Lemon Shikanji</li>
-      <img class="about-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAgCAYAAAD5VeO1AAAMRklEQVR4AQBdAKL/..." alt="Lemon Shikanji" />
-
-      <li>Mango Lassi Supreme™</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953734583128258/6F6FF840-75DC-4FCA-A7AE-F61B2B60E07C.png" alt="Mango Lassi" />
-    </ul>
-
-    <h3>Desserts:</h3>
-    <ul>
-      <li>Lorry-Wheel Jalebi</li>
-      <img class="about-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAgCAYAAAD5VeO1AAAMRklEQVR4AQBdAKL/..." alt="Jalebi" />
-
-      <li>Rasmalai Royale</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953684188696596/CC997A99-3B81-4C08-BD76-D4BCC4D0B468.png" alt="Rasmalai" />
-
-      <li>Ramesh’s Rasgulla Rampage</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685023096962/57033F8D-F9D2-44F6-9458-036F75C348B9.png" alt="Rasgulla" />
-    </ul>
-
-    <h3>Extras:</h3>
-    <ul>
-      <li>Chutney Flight</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685354582046/5C595128-86B5-4C8D-A249-6E7DAFBF1621.png" alt="Chutneys" />
-
-      <li>Sambhar Shot</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953685962621009/image.png" alt="Sambhar" />
-
-      <li>Dosa Fold Customization</li>
-      <img class="about-image" src="https://media.discordapp.net/attachments/1392464232561512499/1397953683664146462/3D859D1D-416C-4D5B-AADA-3FCE7B468292.png" alt="Dosa Fold" />
-    </ul>
+    <div class="product-grid">
+      <div class="product-item">
+        <img src="/mnt/data/2b9241c7-a9b7-4aa9-a8e9-3a2f69539a8d.png" alt="Ramesh Tellybean" />
+        <h3>Ramesh Tellybean™</h3>
+        <p>A limited-edition collectible bean straight from the minds of our legends. Tastes like telly and dreams.</p>
+      </div>
+      <div class="product-item">
+        <img src="/mnt/data/f437fc14-a69e-4377-9d5b-df3e40399748.png" alt="Ramesh Water Supply" />
+        <h3>Ramesh Water Supply</h3>
+        <p>Minerally mysterious. Filtered through vibes and endorsed by legends. (Do not actually drink it.)</p>
+      </div>
+    </div>
   </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p><strong>Phone:</strong> 99785-RAMESH</p>
-    <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
-  </section>
-
-  <!-- ✅ Tawk.to Live Chat Widget -->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-    var s1=document.createElement("script"),
-        s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/68823c6ab325321919f710b2/1j0ubo0kk';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
 
 </body>
 </html>
