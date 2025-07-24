@@ -13,7 +13,7 @@
       cursor: none; /* Hide default cursor */
     }
 
-    /* Custom truck emoji cursor */
+    /* Truck emoji cursor */
     .truck-cursor {
       position: fixed;
       pointer-events: none;
@@ -97,6 +97,55 @@
     html {
       scroll-behavior: smooth;
     }
+
+    /* Chatbot styles */
+    .chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      z-index: 10000;
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    .chatbot-header {
+      background: #222;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .chatbot-messages {
+      padding: 10px;
+      height: 200px;
+      overflow-y: auto;
+    }
+
+    .chatbot-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+
+    .chatbot-input button {
+      background: #222;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -116,18 +165,6 @@
     <p>
       Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.
     </p>
-    <p>
-      Founded on principles of creativity, collaboration, and bold experimentation, Ramesh Enterprises has grown from a passionate initiative into a dynamic identity recognized for its unique approach to branding and audience involvement.
-    </p>
-    <p>
-      🌟 Our Values:
-      <ul>
-        <li>Authentic expression rooted in cultural richness</li>
-        <li>Design that blends clarity, relatability, and innovation</li>
-        <li>Community-driven creativity with emphasis on participation</li>
-        <li>A spirit of continuous refinement and reinvention</li>
-      </ul>
-    </p>
   </section>
 
   <section id="products">
@@ -145,33 +182,16 @@
 
   <section id="menu" class="menu-section">
     <h2>Ramesh Restaurants™ Menu</h2>
-    <p>Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.</p>
-    <p>Whether you’re here for a quick bite or a full feast, our menu celebrates India’s vibrant palate with creative twists and nostalgic comfort. Expect spice, soul, and a sprinkle of Ramesh magic.</p>
     <ul>
-      <li>🥞 <strong>The Signature Dosa Series</strong></li>
-      <li>• Classic Golden Dosa</li>
-      <li>• Paneer Masala Dosa</li>
-      <li>• The Evening Legend Dosa (with sunset chutney)</li>
-
-      <li>🍛 <strong>Main Courses</strong></li>
-      <li>• Ramesh’s Mango Pulav</li>
-      <li>• Rickshaw Rider Thali (includes 5 spicy sides)</li>
-      <li>• Bullock Cart Biryani (slow cooked, legacy packed)</li>
-
-      <li>🥤 <strong>Drinks & Coolers</strong></li>
-      <li>• Ramein Gainz Protein Shake</li>
-      <li>• Lemon Shikanji with Chat Vibes</li>
-      <li>• Mango Lassi Supreme™</li>
-
-      <li>🍮 <strong>Desserts</strong></li>
-      <li>• Lorry-Wheel Jalebi</li>
-      <li>• Rasmalai Royale</li>
-      <li>• Ramesh’s Rasgulla Rampage (3-in-one burst)</li>
-
-      <li>🧂 <strong>Extras & Add-ons</strong></li>
-      <li>• Chutney Flight: Coconut, Mint, Tomato</li>
-      <li>• Special Sambhar Shot</li>
-      <li>• Dosa Fold Customization (single, double, Ramesh-style wrap)</li>
+      <li>🥞 Classic Golden Dosa</li>
+      <li>🥞 Paneer Masala Dosa</li>
+      <li>🥞 The Evening Legend Dosa</li>
+      <li>🍛 Mango Pulav</li>
+      <li>🍛 Rickshaw Rider Thali</li>
+      <li>🍛 Bullock Cart Biryani</li>
+      <li>🥤 Ramein Gainz Protein Shake</li>
+      <li>🥤 Lemon Shikanji</li>
+      <li>🍮 Rasgulla Rampage</li>
     </ul>
   </section>
 
@@ -181,12 +201,43 @@
     <p>📍 Address: Ramesh Enterprises, Chitapalli Road</p>
   </footer>
 
+  <!-- Chatbot UI -->
+  <div class="chatbot" id="chatbot">
+    <div class="chatbot-header">Chat with us 💬</div>
+    <div class="chatbot-messages" id="chatMessages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Type a message...">
+      <button onclick="sendChat()">Send</button>
+    </div>
+  </div>
+
+  <!-- Cursor & Chat script -->
   <script>
+    // Truck cursor
     const cursor = document.getElementById('truckCursor');
     document.addEventListener('mousemove', e => {
       cursor.style.left = e.pageX + 'px';
       cursor.style.top = e.pageY + 'px';
     });
+
+    // Chatbot
+    function sendChat() {
+      const input = document.getElementById('chatInput');
+      const msgBox = document.getElementById('chatMessages');
+
+      if (input.value.trim() === '') return;
+
+      const userMsg = document.createElement('div');
+      userMsg.textContent = '🧑‍💬 ' + input.value;
+      msgBox.appendChild(userMsg);
+
+      const botMsg = document.createElement('div');
+      botMsg.textContent = '🤖 Thanks! A staff member will be with you soon.';
+      msgBox.appendChild(botMsg);
+
+      input.value = '';
+      msgBox.scrollTop = msgBox.scrollHeight;
+    }
   </script>
 </body>
 </html>
