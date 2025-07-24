@@ -42,6 +42,14 @@
       color: #d35400;
     }
 
+    img.hero {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
     .chatbot {
       position: fixed;
       bottom: 20px;
@@ -52,17 +60,18 @@
       border-radius: 10px;
       width: 300px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      font-size: 14px;
     }
 
     .chatlog {
-      height: 150px;
+      height: 180px;
       overflow-y: auto;
-      font-size: 14px;
       margin-bottom: 10px;
+      padding-right: 5px;
     }
 
     .chatlog p {
-      margin: 5px 0;
+      margin: 6px 0;
     }
 
     .chatbot input {
@@ -71,6 +80,11 @@
       font-size: 14px;
       border: 1px solid #ddd;
       border-radius: 5px;
+    }
+
+    .bot-typing {
+      color: #d35400;
+      font-style: italic;
     }
   </style>
 </head>
@@ -85,6 +99,10 @@
       <a href="#contact">Contact</a>
     </div>
   </nav>
+
+  <section>
+    <img class="hero" src="https://placehold.co/1200x400?text=Welcome+to+Ramesh+Enterprises" alt="Banner" />
+  </section>
 
   <section id="about">
     <h2>About Us</h2>
@@ -125,33 +143,50 @@
       "hello": "Hi there! We're glad you visited.",
       "products": "We offer phones, sports kits, and bullock carts!",
       "menu": "Check out our dosa series, thalis, and sweet treats!",
-      "contact": "You can call us at 99785-RAMESH."
+      "contact": "You can call us at 99785-RAMESH.",
+      "thanks": "You're always welcome!",
+      "bye": "Goodbye! Hope to see you again.",
     };
 
     const chatlog = document.getElementById("chatlog");
     const userInput = document.getElementById("userInput");
 
     userInput.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        const msg = userInput.value.toLowerCase();
-        chatlog.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
-        let reply = predefinedResponses[msg] || "Staff will be with you soon.";
-
-        // Typing effect
-        let i = 0;
-        let typingInterval = setInterval(() => {
-          if (i < reply.length) {
-            chatlog.innerHTML += reply[i];
-            i++;
-          } else {
-            chatlog.innerHTML += "<br>";
-            clearInterval(typingInterval);
-          }
-        }, 30);
-
+      if (e.key === "Enter" && userInput.value.trim() !== "") {
+        const msg = userInput.value.trim().toLowerCase();
+        appendMessage("You", msg);
         userInput.value = "";
+
+        let reply = predefinedResponses[msg] || "Staff will be with you shortly.";
+        showTypingEffect("Bot", reply);
       }
     });
+
+    function appendMessage(sender, text) {
+      const p = document.createElement("p");
+      p.innerHTML = `<strong>${sender}:</strong> ${text}`;
+      chatlog.appendChild(p);
+      chatlog.scrollTop = chatlog.scrollHeight;
+    }
+
+    function showTypingEffect(sender, message) {
+      const p = document.createElement("p");
+      p.innerHTML = `<strong>${sender}:</strong> <span class="bot-typing"></span>`;
+      chatlog.appendChild(p);
+
+      let i = 0;
+      let span = p.querySelector("span");
+
+      const typing = setInterval(() => {
+        span.textContent += message[i];
+        i++;
+        chatlog.scrollTop = chatlog.scrollHeight;
+
+        if (i >= message.length) {
+          clearInterval(typing);
+        }
+      }, 30);
+    }
   </script>
 </body>
 
