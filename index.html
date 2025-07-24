@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #fefefe;
+      background-color: #ffffff;
       color: #222;
     }
     header {
@@ -36,10 +36,18 @@
       margin: 10px auto;
       line-height: 1.6;
     }
-    .products img, .about img {
-      max-width: 250px;
-      margin: 15px;
-      border-radius: 12px;
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .image-grid img {
+      width: 220px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     footer {
@@ -49,13 +57,12 @@
       text-align: center;
       margin-top: 40px;
     }
-    .menu-section ul {
+    ul {
       list-style: none;
       padding: 0;
     }
-    .menu-section li {
-      font-size: 1.1em;
-      padding: 6px 0;
+    li {
+      padding: 4px 0;
     }
   </style>
 </head>
@@ -66,92 +73,62 @@
     <p>Delivering top quality products all the time. Purchase to have a happy day</p>
   </header>
 
-  <section class="about">
-    <h2>About Us</h2>
-    <p>
-      Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.
-    </p>
-    <p>
-      Founded on principles of creativity, collaboration, and bold experimentation, Ramesh Enterprises has grown from a passionate initiative into a dynamic identity recognized for its unique approach to branding and audience involvement. Our offerings reflect a balance of structure and expressive flair, aimed at making a meaningful impact across digital and physical spaces.
-    </p>
-    <p>🌟 <strong>Our Values</strong></p>
-    <ul style="text-align: left; max-width: 700px; margin: 0 auto;">
-      <li>✔ Authentic expression rooted in cultural richness</li>
-      <li>✔ Design that blends clarity, relatability, and innovation</li>
-      <li>✔ Community-driven creativity with an emphasis on participation and shared identity</li>
-      <li>✔ A spirit of continuous refinement and reinvention</li>
-    </ul>
-    <p>
-      Whether it’s a truck rolling through an animation loop, a dosa-themed evening quote, or a new honorary role in our community space—Ramesh Enterprises is driven by ideas, powered by people, and designed to make a lasting impression.
-    </p>
+  <section>
+    <h2>About</h2>
+    <p>Ramesh Enterprises - delivering top quality products all the time. Purchase to have a happy day</p>
   </section>
 
-  <section class="products">
+  <section>
     <h2>Our Products</h2>
-    <p>
-      At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.
-    </p>
-    <p>
-      From the smart utility of our Ramesh Phones to the athletic power packed into our Ramesh Sports Kits, and even the sturdy elegance of a well-crafted Ramesh Bullock Cart, each product reflects our dedication to quality, character, and a distinctly Indian spirit.
-    </p>
-    <p>
-      We blend purpose with personality, tradition with tech, and storytelling with substance. Because in our world, even a bullock cart comes with legacy wheels.
-    </p>
-    <p>
-      Whether you're picking a phone that connects dreams, a sports kit that fuels performance, or a cart that rolls with heritage—Ramesh Enterprises delivers with style, reliability, and just the right dose of eccentricity.
-    </p>
-    <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 1">
-    <img src="https://static.wixstatic.com/media/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png" alt="Product 2">
-    <img src="https://static.wixstatic.com/media/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png" alt="Product 3">
-    <img src="https://static.wixstatic.com/media/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png" alt="Product 4">
-    <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Product 5">
-    <img src="https://static.wixstatic.com/media/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png" alt="Product 6">
-    <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 7">
+    <div class="image-grid">
+      <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 1">
+      <img src="https://static.wixstatic.com/media/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png" alt="Product 2">
+      <img src="https://static.wixstatic.com/media/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png" alt="Product 3">
+      <img src="https://static.wixstatic.com/media/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png" alt="Product 4">
+      <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Product 5">
+      <img src="https://static.wixstatic.com/media/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png" alt="Product 6">
+      <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 7">
+    </div>
   </section>
 
-  <section class="menu-section">
-    <h2>🍽️ Ramesh Restaurants™</h2>
-    <p>
-      Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.
-    </p>
-    <p>
-      Whether you’re here for a quick bite or a full feast, our menu celebrates India’s vibrant palate with creative twists and nostalgic comfort. Expect spice, soul, and a sprinkle of Ramesh magic.
-    </p>
+  <section>
+    <h2>Menu</h2>
+    <p>Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.</p>
     <p><em>Because at Ramesh Restaurants, dining isn't just an act—it's a lifestyle.</em></p>
 
-    <h3>🥞 The Signature Dosa Series</h3>
+    <h3>🥞 Dosa Series</h3>
     <ul>
       <li>• Classic Golden Dosa</li>
       <li>• Paneer Masala Dosa</li>
-      <li>• The Evening Legend Dosa (with sunset chutney)</li>
+      <li>• Evening Legend Dosa (sunset chutney)</li>
     </ul>
 
     <h3>🍛 Main Courses</h3>
     <ul>
-      <li>• Ramesh’s Mango Pulav</li>
-      <li>• Rickshaw Rider Thali (includes 5 spicy sides)</li>
-      <li>• Bullock Cart Biryani (slow cooked, legacy packed)</li>
+      <li>• Mango Pulav</li>
+      <li>• Rickshaw Rider Thali (5 spicy sides)</li>
+      <li>• Bullock Cart Biryani (legacy packed)</li>
     </ul>
 
-    <h3>🥤 Drinks & Coolers</h3>
+    <h3>🥤 Drinks</h3>
     <ul>
-      <li>• Ramein Gainz Protein Shake</li>
-      <li>• Lemon Shikanji with Chat Vibes</li>
+      <li>• Ramein Gainz Shake</li>
+      <li>• Lemon Shikanji</li>
       <li>• Mango Lassi Supreme™</li>
     </ul>
 
     <h3>🍮 Desserts</h3>
     <ul>
-      <li>• Lorry-Wheel Jalebi</li>
+      <li>• Jalebi Lorry-Wheel</li>
       <li>• Rasmalai Royale</li>
-      <li>• Ramesh’s Rasgulla Rampage (3-in-one burst)</li>
+      <li>• Rasgulla Rampage (3-in-1 burst)</li>
     </ul>
 
-    <h3>🧂 Extras & Add-ons</h3>
+    <h3>🧂 Extras</h3>
     <ul>
       <li>• Chutney Flight: Coconut, Mint, Tomato</li>
-      <li>• Special Sambhar Shot</li>
-      <li>• Dosa Fold Customization (single, double, Ramesh-style wrap)</li>
+      <li>• Sambhar Shot</li>
+      <li>• Dosa Fold Custom (classic, Ramesh wrap)</li>
     </ul>
   </section>
 
