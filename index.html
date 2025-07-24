@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +17,7 @@
     body.dark {
       --bg-color: #1e1e1e;
       --text-color: #eee;
-      --accent-color: #444;
+      --accent-color: #333;
       --heading-color: #ff884d;
       --chat-bg: #2c2c2c;
       --chat-border: #555;
@@ -43,24 +42,27 @@
       z-index: 100;
     }
 
-    nav a {
-      color: #000;
-      margin: 0 15px;
-      text-decoration: none;
+    nav .left {
       font-weight: bold;
     }
 
-    nav .controls {
+    nav .right {
       display: flex;
       align-items: center;
       gap: 15px;
     }
 
+    nav a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
     nav button {
-      padding: 6px 12px;
       background: #000;
       color: #fff;
       border: none;
+      padding: 6px 12px;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -122,11 +124,10 @@
     }
   </style>
 </head>
-
 <body>
   <nav>
-    <div><strong>Ramesh Enterprises</strong></div>
-    <div class="controls">
+    <div class="left">Ramesh Enterprises</div>
+    <div class="right">
       <a href="#about">About</a>
       <a href="#products">Products</a>
       <a href="#menu">Menu</a>
@@ -173,26 +174,44 @@
   </div>
 
   <script>
-    const predefinedResponses = {
-      "hi": "Hello! Staff will be with you soon.",
-      "hello": "Hi there! We're glad you visited.",
-      "products": "We offer phones, sports kits, and bullock carts!",
-      "menu": "Check out our dosa series, thalis, and sweet treats!",
-      "contact": "You can call us at 99785-RAMESH.",
-      "thanks": "You're always welcome!",
-      "bye": "Goodbye! Hope to see you again.",
-    };
-
     const chatlog = document.getElementById("chatlog");
     const userInput = document.getElementById("userInput");
 
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+
+    const smartBot = (input) => {
+      input = input.toLowerCase();
+
+      if (input.includes("hi") || input.includes("hello")) {
+        return "Hello! How can I help you today?";
+      }
+      if (input.includes("product") || input.includes("sell")) {
+        return "We sell phones, sports kits, and even bullock carts!";
+      }
+      if (input.includes("menu") || input.includes("food") || input.includes("dosa")) {
+        return "Our menu includes Signature Dosa Series, Thalis, Shikanji and Rasmalai!";
+      }
+      if (input.includes("contact") || input.includes("call") || input.includes("phone")) {
+        return "You can call us anytime at 99785-RAMESH!";
+      }
+      if (input.includes("thank")) {
+        return "You're most welcome!";
+      }
+      if (input.includes("bye") || input.includes("goodbye")) {
+        return "Goodbye! Hope to serve you again!";
+      }
+      return "Sorry, I didn't understand that. Staff will get back to you soon.";
+    };
+
     userInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter" && userInput.value.trim() !== "") {
-        const msg = userInput.value.trim().toLowerCase();
+        const msg = userInput.value.trim();
         appendMessage("You", msg);
         userInput.value = "";
 
-        let reply = predefinedResponses[msg] || "Staff will be with you shortly.";
+        let reply = smartBot(msg);
         showTypingEffect("Bot", reply);
       }
     });
@@ -222,11 +241,6 @@
         }
       }, 30);
     }
-
-    function toggleTheme() {
-      document.body.classList.toggle("dark");
-    }
   </script>
 </body>
-
 </html>
