@@ -5,21 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ramesh Enterprises</title>
   <style>
+    /* General Styles */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f5fa;
+      background-color: #f5f5fa;
       color: #222;
-      cursor: none; /* Hide default cursor */
-    }
-
-    /* Truck emoji cursor */
-    .truck-cursor {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      font-size: 24px;
-      transition: transform 0.1s ease;
     }
 
     nav {
@@ -51,6 +42,7 @@
       color: #222;
     }
 
+    /* Products Grid */
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -69,6 +61,7 @@
       transform: scale(1.1);
     }
 
+    /* About Section Image */
     .about-img {
       display: block;
       margin: 1rem auto;
@@ -76,6 +69,7 @@
       border-radius: 12px;
     }
 
+    /* Menu Styling */
     .menu-section ul {
       list-style-type: none;
       padding: 0;
@@ -93,12 +87,11 @@
       margin: 0.5rem 0;
     }
 
-    /* Smooth scroll */
     html {
       scroll-behavior: smooth;
     }
 
-    /* Chatbot styles */
+    /* Chatbot Styles */
     .chatbot {
       position: fixed;
       bottom: 20px;
@@ -149,8 +142,8 @@
   </style>
 </head>
 <body>
-  <div class="truck-cursor" id="truckCursor">🚚</div>
 
+  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
     <a href="#products">Products</a>
@@ -158,6 +151,7 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <!-- About Section -->
   <section id="about">
     <h1>Ramesh Enterprises - Delivering top quality products all the time.</h1>
     <p>Purchase to have a happy day</p>
@@ -167,6 +161,7 @@
     </p>
   </section>
 
+  <!-- Products Section -->
   <section id="products">
     <h2>Our Products</h2>
     <p>At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
@@ -180,6 +175,7 @@
     </div>
   </section>
 
+  <!-- Menu Section -->
   <section id="menu" class="menu-section">
     <h2>Ramesh Restaurants™ Menu</h2>
     <ul>
@@ -195,13 +191,14 @@
     </ul>
   </section>
 
+  <!-- Contact Section -->
   <footer id="contact">
     <h2>Contact Us</h2>
     <p>📞 Phone: 99785-RAMESH</p>
     <p>📍 Address: Ramesh Enterprises, Chitapalli Road</p>
   </footer>
 
-  <!-- Chatbot UI -->
+  <!-- Chatbot -->
   <div class="chatbot" id="chatbot">
     <div class="chatbot-header">Chat with us 💬</div>
     <div class="chatbot-messages" id="chatMessages"></div>
@@ -211,16 +208,8 @@
     </div>
   </div>
 
-  <!-- Cursor & Chat script -->
+  <!-- Chatbot Script -->
   <script>
-    // Truck cursor
-    const cursor = document.getElementById('truckCursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.pageX + 'px';
-      cursor.style.top = e.pageY + 'px';
-    });
-
-    // Chatbot
     function sendChat() {
       const input = document.getElementById('chatInput');
       const msgBox = document.getElementById('chatMessages');
@@ -239,5 +228,6 @@
       msgBox.scrollTop = msgBox.scrollHeight;
     }
   </script>
+
 </body>
 </html>
