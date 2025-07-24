@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ramesh Enterprises</title>
   <style>
     body {
@@ -11,6 +11,7 @@
       background-color: #fff8ef;
       cursor: url('https://cur.cursors-4u.net/food-drinks/foo-2/foo136.cur'), auto;
     }
+
     header {
       background-color: #ff914d;
       color: white;
@@ -18,25 +19,38 @@
       text-align: center;
       font-size: 24px;
     }
+
     nav {
       background-color: #ffa366;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
       padding: 10px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
       font-weight: bold;
     }
+
+    nav a:hover {
+      background-color: #ff7f2a;
+    }
+
     section {
       padding: 30px;
     }
+
     h2 {
       color: #ff5e00;
       border-bottom: 2px solid #ff914d;
       padding-bottom: 5px;
     }
+
     .products img,
     .about img {
       width: 200px;
@@ -45,10 +59,12 @@
       margin: 10px;
       transition: transform 0.3s ease;
     }
+
     .products img:hover,
     .about img:hover {
       transform: scale(1.05);
     }
+
     footer {
       background-color: #ff914d;
       color: white;
@@ -56,16 +72,17 @@
       padding: 15px;
       margin-top: 40px;
     }
+
     .menu-section ul {
       list-style: none;
       padding-left: 0;
     }
+
     .menu-section ul li {
       padding: 5px 0;
     }
   </style>
 </head>
-
 <body>
   <header>
     Ramesh Enterprises - Delivering top quality products all the time. Purchase to have a happy day
@@ -81,7 +98,14 @@
   <section id="about">
     <h2>About Us</h2>
     <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
-    <!-- Rest of about content -->
+    <p>Founded on principles of creativity, collaboration, and bold experimentation, Ramesh Enterprises has grown from a passionate initiative into a dynamic identity recognized for its unique approach to branding and audience involvement. Our offerings reflect a balance of structure and expressive flair, aimed at making a meaningful impact across digital and physical spaces.</p>
+    <ul>
+      <li>🌟 <strong>Our Values</strong></li>
+      <li>Authentic expression rooted in cultural richness</li>
+      <li>Design that blends clarity, relatability, and innovation</li>
+      <li>Community-driven creativity with an emphasis on participation and shared identity</li>
+      <li>A spirit of continuous refinement and reinvention</li>
+    </ul>
     <div class="about">
       <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png" alt="About Us" />
     </div>
@@ -89,20 +113,24 @@
 
   <section id="products">
     <h2>Products</h2>
-    <!-- Intro texts -->
+    <p>At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
+    <p>From the smart utility of our Ramesh Phones to the athletic power packed into our Ramesh Sports Kits, and even the sturdy elegance of a well-crafted Ramesh Bullock Cart, each product reflects our dedication to quality, character, and a distinctly Indian spirit.</p>
+    <p>We blend purpose with personality, tradition with tech, and storytelling with substance. Because in our world, even a bullock cart comes with legacy wheels.</p>
     <div class="products">
-      <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 1"/>
-      <!-- Other product images -->
-      <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 7"/>
+      <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product" />
     </div>
   </section>
 
   <section id="menu" class="menu-section">
     <h2>Menu</h2>
-    <!-- Menu intro & items -->
+    <p>Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.</p>
+    <p>Whether you’re here for a quick bite or a full feast, our menu celebrates India’s vibrant palate with creative twists and nostalgic comfort. Expect spice, soul, and a sprinkle of Ramesh magic.</p>
     <ul>
-      <li>🥞 The Signature Dosa Series – Classic Golden Dosa, Paneer Masala Dosa, Evening Legend Dosa (with sunset chutney)</li>
-      <!-- More menu items -->
+      <li>🥞 <strong>The Signature Dosa Series</strong>: Classic Golden Dosa, Paneer Masala Dosa, The Evening Legend Dosa (with sunset chutney)</li>
+      <li>🍛 <strong>Main Courses</strong>: Ramesh’s Mango Pulav, Rickshaw Rider Thali (includes 5 spicy sides), Bullock Cart Biryani (slow cooked, legacy packed)</li>
+      <li>🥤 <strong>Drinks & Coolers</strong>: Ramein Gainz Protein Shake, Lemon Shikanji with Chat Vibes, Mango Lassi Supreme™</li>
+      <li>🍮 <strong>Desserts</strong>: Lorry-Wheel Jalebi, Rasmalai Royale, Ramesh’s Rasgulla Rampage (3-in-one burst)</li>
+      <li>🡢 <strong>Extras & Add-ons</strong>: Chutney Flight: Coconut, Mint, Tomato; Special Sambhar Shot; Dosa Fold Customization</li>
     </ul>
   </section>
 
