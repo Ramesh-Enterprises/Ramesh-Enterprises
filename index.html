@@ -2,180 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ramesh Enterprises</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
+      background: #fef6e4;
       margin: 0;
-      background: #fffbe7;
-      color: #333;
+      padding: 0;
+      cursor: url('https://em-content.zobj.net/thumbs/240/apple/354/delivery-truck_1f69a.png'), auto;
     }
     header {
-      background-color: #f9a825;
+      background: #ff8906;
       padding: 20px;
       text-align: center;
+      color: white;
       font-size: 22px;
       font-weight: bold;
     }
     nav {
-      background-color: #ffcc29;
+      background: #f25f4c;
       padding: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
+      text-align: center;
     }
-    nav a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #333;
+    nav button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      background: #0f4c5c;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
     }
     section {
       padding: 30px;
     }
     h2 {
-      color: #d17f00;
+      color: #0f4c5c;
     }
-    .products, .menu-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .products img, .menu-section img {
-      width: 100%;
+    .products img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 10px;
       transition: transform 0.3s ease;
     }
-    .products img:hover, .menu-section img:hover {
+    .products img:hover {
       transform: scale(1.05);
     }
     .chat-box {
+      background: #fff;
+      border: 2px solid #ccc;
+      padding: 15px;
+      border-radius: 10px;
+      width: 300px;
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 250px;
-      background: #fff;
-      border: 2px solid #ffcc29;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
     .chat-box h4 {
-      margin: 0 0 10px;
-      color: #d17f00;
+      margin-top: 0;
     }
     .chat-box button {
-      background-color: #f9a825;
-      color: #fff;
-      border: none;
-      padding: 8px;
-      margin: 5px 0;
+      display: block;
+      margin: 8px 0;
       width: 100%;
-      cursor: pointer;
+      background: #ff8906;
+      border: none;
+      color: white;
+      padding: 10px;
       border-radius: 5px;
+      cursor: pointer;
     }
-    .chat-box button:hover {
-      background-color: #d17f00;
+    footer {
+      text-align: center;
+      background: #0f4c5c;
+      color: white;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    Ramesh Enterprises – Delivering top quality products all the time. Purchase to have a happy day.
+    Ramesh Enterprises – Delivering top quality products all the time. Purchase to have a happy day!
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#menu">Menu</a>
-    <a href="#contact">Contact</a>
+    <button onclick="scrollToSection('about')">About</button>
+    <button onclick="scrollToSection('products')">Products</button>
+    <button onclick="scrollToSection('menu')">Menu</button>
   </nav>
 
   <section id="about">
     <h2>About Us</h2>
-    <p><strong>Ramesh Enterprises™</strong> is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
-    <p>Founded on principles of creativity, collaboration, and bold experimentation, Ramesh Enterprises has grown from a passionate initiative into a dynamic identity recognized for its unique approach to branding and audience involvement. Our offerings reflect a balance of structure and expressive flair, aimed at making a meaningful impact across digital and physical spaces.</p>
+    <p>
+      Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.
+    </p>
+    <img src="https://via.placeholder.com/300x400?text=About+Image" alt="About Ramesh" />
     <ul>
-      <li><strong>Authentic expression</strong> rooted in cultural richness</li>
-      <li><strong>Design</strong> that blends clarity, relatability, and innovation</li>
-      <li><strong>Community-driven creativity</strong> with an emphasis on participation and shared identity</li>
-      <li><strong>A spirit</strong> of continuous refinement and reinvention</li>
+      <li>✅ Authentic expression rooted in cultural richness</li>
+      <li>✅ Design that blends clarity, relatability, and innovation</li>
+      <li>✅ Community-driven creativity</li>
+      <li>✅ Continuous refinement and reinvention</li>
     </ul>
-    <p>Whether it’s a truck rolling through an animation loop, a dosa-themed evening quote, or a new honorary role in our community space—Ramesh Enterprises is driven by ideas, powered by people, and designed to make a lasting impression.</p>
-    <img src="https://via.placeholder.com/600x300?text=About+Us+Image" alt="About Us">
   </section>
 
   <section id="products">
     <h2>Our Products</h2>
-    <p>At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
+    <p>
+      At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.
+    </p>
     <div class="products">
-      <div><img src="https://via.placeholder.com/300x400?text=Ramesh+Phone" alt="Product"></div>
-      <div><img src="https://via.placeholder.com/300x400?text=Ramesh+Sports+Kit" alt="Product"></div>
-      <div><img src="https://via.placeholder.com/300x400?text=Ramesh+Bullock+Cart" alt="Product"></div>
-      <div><img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="New Product"></div>
+      <img src="https://via.placeholder.com/200?text=Phone" alt="Phone" />
+      <img src="https://via.placeholder.com/200?text=Sports+Kit" alt="Sports Kit" />
+      <img src="https://via.placeholder.com/200?text=Bullock+Cart" alt="Bullock Cart" />
+      <img src="https://via.placeholder.com/200?text=New+Product" alt="New Product" />
     </div>
   </section>
 
   <section id="menu">
-    <h2>Ramesh Restaurants™</h2>
-    <p>Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Here, tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.</p>
-    <p>Whether you’re here for a quick bite or a full feast, our menu celebrates India’s vibrant palate with creative twists and nostalgic comfort. Expect spice, soul, and a sprinkle of Ramesh magic.</p>
-
-    <div class="menu-section">
-      <div>
-        <h3>🍞 The Signature Dosa Series</h3>
-        <ul>
-          <li>Classic Golden Dosa</li>
-          <li>Paneer Masala Dosa</li>
-          <li>The Evening Legend Dosa (with sunset chutney)</li>
-        </ul>
-      </div>
-      <div>
-        <h3>🍛 Main Courses</h3>
-        <ul>
-          <li>Ramesh’s Mango Pulav</li>
-          <li>Rickshaw Rider Thali (includes 5 spicy sides)</li>
-          <li>Bullock Cart Biryani (slow cooked, legacy packed)</li>
-        </ul>
-      </div>
-      <div>
-        <h3>🥤 Drinks & Coolers</h3>
-        <ul>
-          <li>Ramein Gainz Protein Shake</li>
-          <li>Lemon Shikanji with Chat Vibes</li>
-          <li>Mango Lassi Supreme™</li>
-        </ul>
-      </div>
-      <div>
-        <h3>🍮 Desserts</h3>
-        <ul>
-          <li>Lorry-Wheel Jalebi</li>
-          <li>Rasmalai Royale</li>
-          <li>Ramesh’s Rasgulla Rampage (3-in-one burst)</li>
-        </ul>
-      </div>
-      <div>
-        <h3>🧂 Extras & Add-ons</h3>
-        <ul>
-          <li>Chutney Flight: Coconut, Mint, Tomato</li>
-          <li>Special Sambhar Shot</li>
-          <li>Dosa Fold Customization (single, double, Ramesh-style wrap)</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><strong>Phone:</strong> 99785-RAMESH</p>
-    <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
+    <h2>Ramesh Restaurants™ Menu</h2>
+    <p>
+      Welcome to Ramesh Restaurants™, the culinary destination powered by the heart of Ramesh Enterprises™. Tradition meets innovation, and every dish is crafted with flavor, flair, and a story to tell.
+    </p>
+    <h3>🥞 The Signature Dosa Series</h3>
+    <ul>
+      <li>Classic Golden Dosa</li>
+      <li>Paneer Masala Dosa</li>
+      <li>The Evening Legend Dosa (with sunset chutney)</li>
+    </ul>
+    <h3>🍛 Main Courses</h3>
+    <ul>
+      <li>Ramesh’s Mango Pulav</li>
+      <li>Rickshaw Rider Thali (includes 5 spicy sides)</li>
+      <li>Bullock Cart Biryani (slow cooked, legacy packed)</li>
+    </ul>
+    <h3>🥤 Drinks & Coolers</h3>
+    <ul>
+      <li>Ramein Gainz Protein Shake</li>
+      <li>Lemon Shikanji with Chat Vibes</li>
+      <li>Mango Lassi Supreme™</li>
+    </ul>
+    <h3>🍮 Desserts</h3>
+    <ul>
+      <li>Lorry-Wheel Jalebi</li>
+      <li>Rasmalai Royale</li>
+      <li>Ramesh’s Rasgulla Rampage</li>
+    </ul>
+    <h3>🧂 Extras</h3>
+    <ul>
+      <li>Chutney Flight</li>
+      <li>Special Sambhar Shot</li>
+      <li>Dosa Fold Customization</li>
+    </ul>
   </section>
 
   <div class="chat-box">
-    <h4>Chat with us 🚚</h4>
-    <button>What are your store timings?</button>
-    <button>How can I place an order?</button>
-    <button>Where is Ramesh Enterprises located?</button>
-    <button>Tell me about your best-selling product.</button>
+    <h4>Need Help?</h4>
+    <p><em>Our staff will be with you soon!</em></p>
+    <button onclick="alert('Hello! How can we help you today?')">Say Hello</button>
+    <button onclick="alert('We’re happy to assist with products.')">Ask about products</button>
+    <button onclick="alert('Restaurant menu coming right up!')">Ask about menu</button>
   </div>
+
+  <footer>
+    📞 Phone: 99785-RAMESH<br/>
+    📍 Address: Ramesh Enterprises, Chitapalli Road
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
