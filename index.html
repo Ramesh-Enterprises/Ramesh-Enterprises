@@ -1,95 +1,216 @@
-<script>
-  function toggleTheme() {
-    document.body.classList.toggle("dark");
-  }
-
-  const chatlog = document.getElementById("chatlog");
-  const userInput = document.getElementById("userInput");
-
-  userInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter" && userInput.value.trim() !== "") {
-      const msg = userInput.value.trim();
-      appendMessage("You", msg);
-      userInput.value = "";
-
-      const reply = getBotReply(msg);
-      showTypingEffect("Bot", reply);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramesh Enterprises</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fefefe;
+      color: #222;
     }
-  });
 
-  function appendMessage(sender, text) {
-    const p = document.createElement("p");
-    p.innerHTML = `<strong>${sender}:</strong> ${text}`;
-    chatlog.appendChild(p);
-    chatlog.scrollTop = chatlog.scrollHeight;
-  }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
 
-  function showTypingEffect(sender, message) {
-    const p = document.createElement("p");
-    p.innerHTML = `<strong>${sender}:</strong> <span class="bot-typing"></span>`;
-    chatlog.appendChild(p);
-    let i = 0;
-    const span = p.querySelector("span");
-    const typing = setInterval(() => {
-      span.textContent += message[i];
-      i++;
-      chatlog.scrollTop = chatlog.scrollHeight;
-      if (i >= message.length) clearInterval(typing);
-    }, 30);
-  }
+    section {
+      padding: 2rem;
+      border-bottom: 1px solid #ccc;
+    }
 
-  const responses = {
-    greetings: [
-      "Hey there! How can I help you today?",
-      "Hello! Welcome to Ramesh Enterprises.",
-      "Hi! Feel free to ask me anything."
-    ],
-    food: [
-      "We serve everything from Dosas to Rasgullas. Hungry already?",
-      "Try our Signature Dosa Series or the Mango Pulav!",
-      "Our Bullock Cart Biryani is a fan favorite."
-    ],
-    contact: [
-      "You can call us at 99785-RAMESH.",
-      "Reach out anytime! Our contact is in the 'Contact' section.",
-      "Customer support is one call away: 99785-RAMESH."
-    ],
-    products: [
-      "We offer phones, gym kits, bullock carts — and dreams!",
-      "From protein shakes to thalis, we sell vibes.",
-      "Innovation meets culture in all our products."
-    ],
-    thanks: [
-      "You're welcome! Always happy to help.",
-      "Glad to assist. Let me know if you need more.",
-      "Anytime! Thanks for visiting Ramesh Enterprises."
-    ],
-    goodbye: [
-      "Goodbye! Hope to see you again!",
-      "Take care and come back soon!",
-      "Thanks for stopping by! 👋"
-    ],
-    fallback: [
-      "Hmm... I didn’t quite catch that. Could you try asking differently?",
-      "Interesting... but I’m not sure how to respond to that yet.",
-      "A team member might help better with that. Try something else for now?"
-    ]
-  };
+    h2 {
+      color: #444;
+    }
 
-  function getBotReply(msg) {
-    const m = msg.toLowerCase();
+    .menu-section ul {
+      list-style: none;
+      padding: 0;
+    }
 
-    if (m.match(/(hi|hello|hey|greetings)/)) return randomFrom(responses.greetings);
-    if (m.match(/(menu|food|eat|dosa|biryani|rasgulla|restaurant|lunch|dinner)/)) return randomFrom(responses.food);
-    if (m.match(/(contact|call|phone|reach|number)/)) return randomFrom(responses.contact);
-    if (m.match(/(product|sell|buy|items|catalog)/)) return randomFrom(responses.products);
-    if (m.match(/(thank|thanks|thx)/)) return randomFrom(responses.thanks);
-    if (m.match(/(bye|goodbye|see you|later)/)) return randomFrom(responses.goodbye);
+    .menu-section li {
+      padding: 0.3rem 0;
+    }
 
-    return randomFrom(responses.fallback);
-  }
+    .chatbox {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+    }
 
-  function randomFrom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  }
-</script>
+    .chat-header {
+      background-color: #222;
+      color: white;
+      padding: 0.5rem;
+      font-weight: bold;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .chat-messages {
+      padding: 1rem;
+      height: 180px;
+      overflow-y: auto;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+      outline: none;
+    }
+
+    .chat-input button {
+      padding: 0.5rem;
+      border: none;
+      background: #444;
+      color: white;
+      cursor: pointer;
+    }
+
+    .message {
+      margin: 0.5rem 0;
+    }
+
+    .bot {
+      color: #008000;
+    }
+
+    .user {
+      color: #0000cc;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Ramesh Enterprises™</header>
+
+  <section>
+    <h2>About Us</h2>
+    <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
+  </section>
+
+  <section>
+    <h2>Products</h2>
+    <p>At Ramesh Enterprises™, our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
+  </section>
+
+  <section class="menu-section">
+    <h2>Menu - Ramesh Restaurants™</h2>
+    <h3>The Signature Dosa Series:</h3>
+    <ul>
+      <li>Classic Golden Dosa</li>
+      <li>Paneer Masala Dosa</li>
+      <li>The Evening Legend Dosa</li>
+    </ul>
+
+    <h3>Main Courses:</h3>
+    <ul>
+      <li>Ramesh’s Mango Pulav</li>
+      <li>Rickshaw Rider Thali</li>
+      <li>Bullock Cart Biryani</li>
+    </ul>
+
+    <h3>Drinks:</h3>
+    <ul>
+      <li>Ramein Gainz Protein Shake</li>
+      <li>Lemon Shikanji</li>
+      <li>Mango Lassi Supreme™</li>
+    </ul>
+
+    <h3>Desserts:</h3>
+    <ul>
+      <li>Lorry-Wheel Jalebi</li>
+      <li>Rasmalai Royale</li>
+      <li>Ramesh’s Rasgulla Rampage</li>
+    </ul>
+
+    <h3>Extras:</h3>
+    <ul>
+      <li>Chutney Flight</li>
+      <li>Sambhar Shot</li>
+      <li>Dosa Fold Customization</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p><strong>Phone:</strong> 99785-RAMESH</p>
+    <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
+  </section>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chat-header">Ramesh Bot 🤖</div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot" id="botMessage">Our staff will be with you shortly...</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const chatMessages = document.getElementById('chatMessages');
+      const userMsg = input.value.trim();
+
+      if (userMsg !== '') {
+        const userDiv = document.createElement('div');
+        userDiv.className = 'message user';
+        userDiv.innerText = userMsg;
+        chatMessages.appendChild(userDiv);
+        
+        input.value = '';
+
+        setTimeout(() => {
+          const botDiv = document.createElement('div');
+          botDiv.className = 'message bot';
+          botDiv.innerText = 'Thank you for your message! A staff member will respond soon.';
+          chatMessages.appendChild(botDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1000);
+      }
+    }
+
+    // Optional: Typing effect for bot on load
+    window.onload = () => {
+      const botMessage = document.getElementById('botMessage');
+      const text = "Our staff will be with you shortly...";
+      botMessage.innerText = "";
+      let i = 0;
+      const typing = setInterval(() => {
+        if (i < text.length) {
+          botMessage.innerText += text[i];
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, 50);
+    }
+  </script>
+
+</body>
+</html>
