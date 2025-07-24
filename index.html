@@ -3,94 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ramesh Universe</title>
+  <title>Ramesh Enterprises</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #fffdf7;
-      color: #222;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
     }
 
     header {
-      background-color: #fff0e5;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    nav {
       background-color: #222;
       color: white;
-      padding: 10px;
+      padding: 1rem;
       text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+      font-size: 2rem;
     }
 
     section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
+      padding: 2rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    h2 {
+      color: #444;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .about-image {
+      display: block;
+      margin: 1.5rem auto;
+      max-width: 300px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 1rem;
     }
 
     .product-item {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-      padding: 16px;
       text-align: center;
-      transition: transform 0.2s ease;
-    }
-
-    .product-item:hover {
-      transform: translateY(-5px);
     }
 
     .product-item img {
       width: 100%;
-      max-width: 320px;
+      max-width: 300px;
       border-radius: 12px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .product-item h3 {
-      margin-bottom: 8px;
-      font-size: 1.3rem;
-      color: #d03c3c;
-    }
-
-    .product-item p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 0.8rem;
     }
 
     .contact-section a {
-      color: #ffb347;
+      color: #0066cc;
       text-decoration: none;
       font-weight: bold;
     }
@@ -102,36 +80,31 @@
 </head>
 <body>
 
-  <header>
-    <h1>Welcome to the Ramesh Universe</h1>
-    <p>The multiverse of madness, mischief, and mineral water™</p>
-  </header>
+  <header>Ramesh Enterprises™</header>
 
-  <nav>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <section>
+    <h2>About Us</h2>
+    <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
+    <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png/v1/fill/w_480,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png"
+         alt="Ramesh About Us" class="about-image" />
+  </section>
 
-  <section id="products">
+  <section>
     <h2>Products</h2>
     <p>Our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
 
     <div class="product-grid">
+      <!-- Example product items -->
       <div class="product-item">
-        <h3>Ramesh Cola</h3>
-        <p>The classic fizz with 200% extra drama.</p>
+        <h3>Ramesh Dosa Kit</h3>
+        <p>Make your own dosa at home with our premium kit.</p>
       </div>
       <div class="product-item">
-        <h3>Ramesh Noodles</h3>
-        <p>Boils in 2 minutes, lives forever in your heart.</p>
-      </div>
-      <div class="product-item">
-        <h3>Ramesh PowerBank</h3>
-        <p>Never runs out, even when your emotions do.</p>
+        <h3>Ramesh Spice Pack</h3>
+        <p>Authentic spice blends to level up your cooking.</p>
       </div>
 
-      <!-- 🆕 Added working product images below -->
-
+      <!-- ✅ Added working images -->
       <div class="product-item">
         <img src="https://i.imgur.com/lBrV0WY.png" alt="Ramesh Tellybean" />
         <h3>Ramesh Tellybean™</h3>
@@ -145,18 +118,60 @@
     </div>
   </section>
 
-  <section id="contact" class="contact-section">
-    <h2>Contact</h2>
-    <p>Join our community on 
-      <a href="https://discord.gg/WVnuXUabzg" target="_blank" rel="noopener noreferrer">
-        Discord
-      </a> to stay updated, chat with Ramesh fans, or ask any questions.
-    </p>
+  <section>
+    <h2>Menu - Ramesh Restaurants™</h2>
+    <h3>The Signature Dosa Series:</h3>
+    <ul>
+      <li>Classic Golden Dosa</li>
+      <li>Paneer Masala Dosa</li>
+      <li>The Evening Legend Dosa</li>
+    </ul>
+    <h3>Main Courses:</h3>
+    <ul>
+      <li>Ramesh’s Mango Pulav</li>
+      <li>Rickshaw Rider Thali</li>
+      <li>Bullock Cart Biryani</li>
+    </ul>
+    <h3>Drinks:</h3>
+    <ul>
+      <li>Ramein Gainz Protein Shake</li>
+      <li>Lemon Shikanji</li>
+      <li>Mango Lassi Supreme™</li>
+    </ul>
+    <h3>Desserts:</h3>
+    <ul>
+      <li>Lorry-Wheel Jalebi</li>
+      <li>Rasmalai Royale</li>
+      <li>Ramesh’s Rasgulla Rampage</li>
+    </ul>
+    <h3>Extras:</h3>
+    <ul>
+      <li>Chutney Flight</li>
+      <li>Sambhar Shot</li>
+      <li>Dosa Fold Customization</li>
+    </ul>
   </section>
 
-  <footer>
-    <p>© 2025 Ramesh Corp. All rights preserved™</p>
-  </footer>
+  <section id="contact" class="contact-section">
+    <h2>Contact</h2>
+    <p><strong>Phone:</strong> 99785-RAMESH</p>
+    <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
+    <p>Join our community on <a href="https://discord.gg/WVnuXUabzg" target="_blank" rel="noopener noreferrer">Discord</a> to stay updated, chat, or ask questions.</p>
+  </section>
+
+  <!-- ✅ Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),
+          s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/68823c6ab325321919f710b2/1j0ubo0kk';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
 
 </body>
 </html>
