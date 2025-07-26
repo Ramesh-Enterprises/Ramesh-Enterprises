@@ -12,33 +12,35 @@
       color: #333;
     }
 
-    .buy-now {
-      background-color: #ff5722;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .buy-now a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .buy-now a:hover {
-      text-decoration: underline;
-    }
-
     header {
       background-color: #222;
       color: white;
-      padding: 1rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
       font-size: 2rem;
+    }
+
+    .buy-now-btn {
+      background-color: #ff5722;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-now-btn:hover {
+      background-color: #e64a19;
     }
 
     section {
@@ -91,11 +93,10 @@
 </head>
 <body>
 
-  <div class="buy-now">
-    <a href="">🛒 Buy Now</a>
-  </div>
-
-  <header>Ramesh Enterprises™</header>
+  <header>
+    <h1>Ramesh Enterprises™</h1>
+    <a href="" class="buy-now-btn">🛒 Buy Now</a>
+  </header>
 
   <section>
     <h2>About Us</h2>
