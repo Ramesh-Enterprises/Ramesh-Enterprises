@@ -8,69 +8,50 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: #f4f4f4;
     }
 
     header {
-      background-color: #333;
+      background-color: #222;
       color: white;
       padding: 20px;
       text-align: center;
       position: relative;
     }
 
-    .buy-now-button {
+    .buy-now {
       position: absolute;
       top: 20px;
       right: 20px;
-      background-color: #f39c12;
-      color: white;
-      border: none;
       padding: 10px 20px;
+      background-color: gold;
+      color: black;
+      border: none;
+      border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
-      border-radius: 5px;
-      transition: all 0.3s ease;
       text-decoration: none;
+      transition: transform 0.2s ease;
     }
 
-    .buy-now-button:hover {
-      background-color: #e67e22;
-      transform: scale(1.05);
+    .buy-now:hover {
+      transform: scale(1.1);
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #555;
-      padding: 10px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 0 15px;
-      font-weight: bold;
-    }
-
-    section {
+    .product-section {
       padding: 40px;
-      max-width: 900px;
-      margin: auto;
+      text-align: center;
     }
 
     .product-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
+      gap: 20px;
     }
 
     .product-item {
-      flex: 1 1 200px;
-      max-width: 200px;
-      text-align: center;
+      width: 200px;
       transition: transform 0.3s ease;
     }
 
@@ -82,14 +63,6 @@
       width: 100%;
       height: auto;
       border-radius: 10px;
-      object-fit: cover;
-    }
-
-    footer {
-      text-align: center;
-      background-color: #333;
-      color: white;
-      padding: 20px;
     }
   </style>
 </head>
@@ -97,59 +70,32 @@
 
   <header>
     <h1>Ramesh Enterprises™</h1>
-    <a href="#" class="buy-now-button">Buy Now</a>
+    <a href="#" class="buy-now">Buy Now</a>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Since 1673, Ramesh Enterprises™ has brought the finest products to your doorstep, straight from Karnataka to the world.</p>
-  </section>
-
-  <section id="menu">
-    <h2>Menu</h2>
-    <p>Coming soon with a side of chutney. 🍛</p>
-  </section>
-
-  <section id="products">
+  <section class="product-section">
     <h2>Our Products</h2>
     <div class="product-list">
       <div class="product-item">
-        <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png/v1/fill/w_326,h_518,al_c,q_85,enc_avif,quality_auto/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 1" />
+        <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png/v1/fill/w_326,h_518,al_c,q_85,enc_avif,quality_auto/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 1">
       </div>
       <div class="product-item">
-        <img src="https://static.wixstatic.com/media/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png/v1/fill/w_457,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png" alt="Product 2" />
+        <img src="https://static.wixstatic.com/media/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png/v1/fill/w_457,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png" alt="Product 2">
       </div>
       <div class="product-item">
-        <img src="https://static.wixstatic.com/media/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png/v1/fill/w_349,h_347,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png" alt="Product 3" />
+        <img src="https://static.wixstatic.com/media/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png/v1/fill/w_349,h_347,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png" alt="Product 3">
       </div>
       <div class="product-item">
-        <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png/v1/fill/w_288,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Product 4" />
+        <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png/v1/fill/w_288,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Product 4">
       </div>
       <div class="product-item">
-        <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png/v1/fill/w_193,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 5" />
+        <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png/v1/fill/w_193,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 5">
       </div>
       <div class="product-item">
-        <img src="https://static.wixstatic.com/media/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png/v1/fill/w_207,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png" alt="Product 6" />
+        <img src="https://static.wixstatic.com/media/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png/v1/fill/w_207,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png" alt="Product 6">
       </div>
     </div>
   </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: support@rameshenterprises.com</p>
-    <p>Discord: <a href="https://discord.gg/WVnuXUabzg" target="_blank">Join our server</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 1673–2025 Ramesh Enterprises™. All rights reserved.</p>
-  </footer>
 
 </body>
 </html>
