@@ -13,109 +13,163 @@
     }
 
     header {
-      background-color: #f57c00;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background-color: #222;
       color: white;
+      padding: 1rem 2rem;
+      position: relative;
+      text-align: center;
+      font-size: 2rem;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-
-    .buy-button {
-      background-color: #fff;
-      color: #f57c00;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
+    .buy-now-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ff5722;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
       font-weight: bold;
-      cursor: pointer;
       text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
 
-    .buy-button:hover {
-      background-color: #ffe0b2;
+    .buy-now-btn:hover {
+      background-color: #e64a19;
     }
 
-    main {
+    section {
       padding: 2rem;
+      border-bottom: 1px solid #ccc;
     }
 
     h2 {
-      text-align: center;
-      margin-bottom: 2rem;
+      color: #444;
     }
 
-    .products {
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    .about-image {
+      display: block;
+      margin: 1.5rem auto;
+      max-width: 300px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .product-gallery {
       display: flex;
       flex-wrap: wrap;
+      gap: 20px;
       justify-content: center;
-      gap: 2rem;
     }
 
-    .product {
+    .product-gallery img {
       width: 200px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-      background-color: #fafafa;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .product img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-    }
-
-    .product p {
-      margin-top: 0.5rem;
+    .product-gallery img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Ramesh Enterprises</h1>
-    <a href="delivery.html" class="buy-button">Buy Now</a>
+    Ramesh Enterprises™
+    <a href="" class="buy-now-btn">🛒 Buy Now</a>
   </header>
 
-  <main>
-    <h2>Our Products</h2>
-    <div class="products">
-      <div class="product">
-        <img src="https://static.wixstatic.com/media/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png/v1/fill/w_207,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png" alt="Product 1">
-        <p>Product 1</p>
-      </div>
-      <div class="product">
-        <img src="https://static.wixstatic.com/media/7aa725_63ad96e1ef7c41948fb3828df16426d4~mv2.png/v1/fill/w_207,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_63ad96e1ef7c41948fb3828df16426d4~mv2.png" alt="Product 2">
-        <p>Product 2</p>
-      </div>
-      <div class="product">
-        <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Ashok Product">
-        <p>Ashok Delivery</p>
-      </div>
-      <div class="product">
-        <img src="670d355b-b387-44ab-9ac0-61ba10ee2343.png" alt="Eicher Product">
-        <p>Eicher Delivery</p>
-      </div>
-    </div>
-  </main>
+  <section>
+    <h2>About Us</h2>
+    <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
 
-  <!-- Tawk.to Live Chat Widget -->
+    <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png/v1/fill/w_480,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png" 
+         alt="Ramesh About Us" class="about-image" />
+  </section>
+
+  <section>
+    <h2>Products</h2>
+    <p>Our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
+    <div class="product-gallery">
+      <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png/v1/fill/w_326,h_518,al_c,q_85,enc_avif,quality_auto/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 1" />
+      <img src="https://static.wixstatic.com/media/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png/v1/fill/w_457,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png" alt="Product 2" />
+      <img src="https://static.wixstatic.com/media/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png/v1/fill/w_349,h_347,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png" alt="Product 3" />
+      <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png/v1/fill/w_288,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Product 4" />
+      <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png/v1/fill/w_193,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 5" />
+      <img src="https://static.wixstatic.com/media/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png/v1/fill/w_207,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png" alt="Product 6" />
+      <img src="https://static.wixstatic.com/media/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png/v1/fill/w_207,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png" alt="Product 7" />
+      <img src="https://static.wixstatic.com/media/7aa725_63ad96e1ef7c41948fb3828df16426d4~mv2.png/v1/fill/w_207,h_305,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7aa725_63ad96e1ef7c41948fb3828df16426d4~mv2.png" alt="Product 8" />
+    </div>
+  </section>
+
+  <section>
+    <h2>Menu - Ramesh Restaurants™</h2>
+    <h3>The Signature Dosa Series:</h3>
+    <ul>
+      <li>Classic Golden Dosa</li>
+      <li>Paneer Masala Dosa</li>
+      <li>The Evening Legend Dosa</li>
+    </ul>
+    <h3>Main Courses:</h3>
+    <ul>
+      <li>Ramesh’s Mango Pulav</li>
+      <li>Rickshaw Rider Thali</li>
+      <li>Bullock Cart Biryani</li>
+    </ul>
+    <h3>Drinks:</h3>
+    <ul>
+      <li>Ramein Gainz Protein Shake</li>
+      <li>Lemon Shikanji</li>
+      <li>Mango Lassi Supreme™</li>
+    </ul>
+    <h3>Desserts:</h3>
+    <ul>
+      <li>Lorry-Wheel Jalebi</li>
+      <li>Rasmalai Royale</li>
+      <li>Ramesh’s Rasgulla Rampage</li>
+    </ul>
+    <h3>Extras:</h3>
+    <ul>
+      <li>Chutney Flight</li>
+      <li>Sambhar Shot</li>
+      <li>Dosa Fold Customization</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p><strong>Phone:</strong> 99785-RAMESH</p>
+    <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
+    <p><strong>Discord:</strong> <a href="https://discord.gg/WVnuXUabzg" target="_blank">Join our Discord</a></p>
+  </section>
+
+  <!-- ✅ Tawk.to Live Chat Widget -->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/your-tawk-id/default';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
+    var s1=document.createElement("script"),
+        s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68823c6ab325321919f710b2/1j0ubo0kk';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
   })();
   </script>
 
