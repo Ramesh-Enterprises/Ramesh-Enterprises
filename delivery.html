@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Your Delivery Partner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff5ee;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
 
+    h1 {
+      color: #d84315;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .option {
+      border: 2px solid #ff5722;
+      border-radius: 12px;
+      padding: 1rem;
+      background-color: #fff;
+      width: 250px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .option:hover {
+      transform: scale(1.05);
+    }
+
+    .option img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .option button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #ff5722;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .option button:hover {
+      background-color: #e64a19;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Choose Your Delivery Partner:</h1>
+
+  <div class="options">
+    <div class="option">
+      <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Ashok Delivery">
+      <form action="confirmation.html">
+        <button type="submit">Ashok</button>
+      </form>
+    </div>
+
+    <div class="option">
+      <img src="670d355b-b387-44ab-9ac0-61ba10ee2343.png" alt="Eicher Delivery">
+      <form action="confirmation.html">
+        <button type="submit">Eicher</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
