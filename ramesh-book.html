@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>How to Be Successful by Ramesh</title>
+  <title>📘 How to Be Successful by Ramesh</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       background-color: #fff8e1;
       font-family: 'Segoe UI', sans-serif;
@@ -12,111 +15,164 @@
       margin: 0;
       padding: 0;
     }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
+    .book {
+      width: 90%;
+      max-width: 700px;
+      margin: 40px auto;
       background-color: #fff3e0;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      margin-top: 30px;
-      margin-bottom: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+    .page {
+      display: none;
+      padding: 30px 20px;
+      animation: flip 0.6s ease-in-out;
+    }
+    .page.active {
+      display: block;
+    }
+    @keyframes flip {
+      from { transform: rotateY(90deg); opacity: 0; }
+      to { transform: rotateY(0); opacity: 1; }
+    }
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background-color: #ffe0b2;
+      border-top: 2px dashed #f57c00;
+    }
+    .nav-btn {
+      background-color: #ef6c00;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .nav-btn:hover {
+      background-color: #e65100;
     }
     h1, h2 {
-      text-align: center;
       color: #bf360c;
-    }
-    h1 {
-      font-size: 2.5em;
-    }
-    h2 {
-      font-size: 1.6em;
-      margin-top: 2em;
-    }
-    p {
-      font-size: 1.1em;
-      line-height: 1.8;
-      margin-bottom: 20px;
     }
     .truck {
       text-align: center;
       font-size: 2em;
       margin: 20px 0;
     }
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #d84315;
+    ul {
+      padding-left: 20px;
     }
     .back-button {
       display: block;
-      margin: 40px auto 0;
-      padding: 12px 24px;
-      background-color: #ff7043;
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      font-weight: bold;
-      border-radius: 8px;
-      text-align: center;
       width: fit-content;
+      margin: 30px auto 20px;
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
       transition: background-color 0.3s ease;
     }
     .back-button:hover {
-      background-color: #e64a19;
+      background-color: #388e3c;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+<div class="book">
+  <!-- Page 1 -->
+  <div class="page active">
     <h1>How to Be Successful</h1>
     <h2>By Ramesh (owner of Ramesh Enterprises, CEO of Life Advice)</h2>
-
     <h2>Chapter 1: Meet Me (and Ashok)</h2>
-    <p>Hello-ji! I am Ramesh. You may know me as the most successful man in Sector-17 Industrial Area (next to Sharma’s juice shop). But once, I was just a simple truck cleaner with big dreams and small lungs filled with diesel smoke.</p>
-    <p>And this is the story of how I became successful—with a little jugaad, a lot of chutney sandwiches, and my best friend, Ashok.</p>
-    <p>Ashok and I have been best friends since school days—back when we both failed 10th standard. He failed because he tried to tow the principal’s scooter with his tiffin box. I failed because I was busy drawing trucks in all my answer sheets. Great times.</p>
-
-    <h2>Chapter 2: Trucks are Life</h2>
-    <p>If you want to be successful, remember this simple rule: <strong>Respect the truck</strong>.</p>
-    <p>Other people see vehicles. I see dreams with engines. Where others see a horn, I hear the sound of ambition. <strong>Pom pom.</strong></p>
-    <p>I started with one truck. Ashok painted “Ramesh Roadlines” on it using Holi colors. Then he spelled it wrong. But business was booming anyway, mostly because we delivered faster than FedEx and sometimes didn’t charge if we forgot the invoice.</p>
-    <p>Moral of the story? Start with what you have—even if what you have is just a truck, a friend, and a tiffin box with aloo paratha.</p>
-
-    <h2>Chapter 3: Don’t Chase Money. Chase Diesel.</h2>
-    <p>Money will come. But diesel? Diesel is expensive. So I started storing it in my water tank. Did it backfire? Slightly. My mother made tea with diesel for a week.</p>
-    <p>Success is not about avoiding mistakes. It’s about making such <em>confident</em> mistakes that people think you meant to do it. Like when Ashok accidentally reversed a truck into a wedding tent and then convinced everyone it was a surprise entry of the bride’s uncle.</p>
-
-    <h2>Chapter 4: Believe in Your Team (Even If They’re Useless)</h2>
-    <p>Ashok once tried to tow a tractor with a Maruti 800. That man believes in impossible things. Which is why he’s still my partner.</p>
-    <p>Hire people like that. Loyal, unpredictable, and slightly confused. You’ll never be bored—and sometimes, they’ll accidentally invent a new business idea (like our accidental cow transport service).</p>
-
-    <h2>Chapter 5: Be Indian. Think Indian.</h2>
-    <p>People say, "Think global." I say, "Think local, like Lassi in Patiala glass."</p>
-    <p>We put gods on our trucks. Not just for blessings—but because people give way faster when they see Bajrang Bali speeding toward them.</p>
-    <p>We added speakers to play “Koi Kahe Kehta Rahe” while delivering cement. Why? Because a dancing truck is a happy truck.</p>
-
-    <h2>Final Chapter: Ramesh’s 5-Step Success Formula (Patented and Useless)</h2>
-    <ul>
-      <li>Wake up at 6 AM. Then go back to sleep. But at least you woke up.</li>
-      <li>Drink chai. Chai = clarity.</li>
-      <li>Shout confidently. Even if you’re wrong. It works in meetings.</li>
-      <li>Take Ashok’s advice. Then do the opposite.</li>
-      <li>Never give up. Unless it’s a diet. Give up immediately.</li>
-    </ul>
-
-    <h2>The End (or The Beginning?)</h2>
-    <p>Today, Ramesh Enterprises has 14 trucks, one pickup, and one confused donkey (Ashok’s side hustle). We deliver everything—except regrets.</p>
-    <p>If I can do it, so can you. Just believe in yourself. And if that fails, believe in Ashok. He always has a wild idea and a working horn.</p>
-    <div class="truck">🚛 Pom Pom! 🚚</div>
-
-    <div class="footer">Thank you for reading! Jai Truck!</div>
-
-    <!-- GO BACK BUTTON -->
-    <a href="index.html" class="back-button">⬅️ Go Back</a>
-
+    <p>Hello-ji! I am Ramesh... drawing trucks in all my answer sheets. Great times.</p>
   </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+    <h2>Chapter 2: Trucks are Life</h2>
+    <p>If you want to be successful... a tiffin box with aloo paratha.</p>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page">
+    <h2>Chapter 3: Don’t Chase Money. Chase Diesel.</h2>
+    <p>Money will come... bride’s uncle.</p>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page">
+    <h2>Chapter 4: Believe in Your Team (Even If They’re Useless)</h2>
+    <p>Ashok once tried to tow a tractor... accidental cow transport service).</p>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page">
+    <h2>Chapter 5: Be Indian. Think Indian.</h2>
+    <p>People say, "Think global."... a happy truck.</p>
+  </div>
+
+  <!-- Page 6 -->
+  <div class="page">
+    <h2>Final Chapter: Ramesh’s 5-Step Success Formula</h2>
+    <ul>
+      <li>Wake up at 6 AM. Then go back to sleep.</li>
+      <li>Drink chai. Chai = clarity.</li>
+      <li>Shout confidently. Even if you’re wrong.</li>
+      <li>Take Ashok’s advice. Then do the opposite.</li>
+      <li>Never give up. Unless it’s a diet.</li>
+    </ul>
+  </div>
+
+  <!-- Page 7 -->
+  <div class="page">
+    <h2>The End (or The Beginning?)</h2>
+    <p>Today, Ramesh Enterprises has... and a working horn.</p>
+    <div class="truck">🚛 Pom Pom! 🚚</div>
+    <a href="index.html" class="back-button">← Go Back</a>
+  </div>
+
+  <!-- Navigation -->
+  <div class="navigation">
+    <button class="nav-btn" onclick="prevPage()">❮ Previous</button>
+    <button class="nav-btn" onclick="nextPage()">Next ❯</button>
+  </div>
+</div>
+
+<script>
+  let currentPage = 0;
+  const pages = document.querySelectorAll('.page');
+
+  function showPage(index) {
+    pages.forEach((p, i) => {
+      p.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextPage() {
+    if (currentPage < pages.length - 1) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 0) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  }
+
+  showPage(currentPage);
+</script>
+
 </body>
 </html>
