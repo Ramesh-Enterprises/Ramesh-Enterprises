@@ -24,10 +24,16 @@
       letter-spacing: 1px;
     }
 
-    .buy-now-btn {
+    .header-buttons {
       position: absolute;
       top: 50%;
+      right: 20px;
       transform: translateY(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
       background-color: #ff5722;
       color: white;
       padding: 0.4rem 0.8rem;
@@ -38,12 +44,11 @@
       transition: background-color 0.3s ease;
     }
 
-    .buy-now-btn:hover {
-      background-color: #e64a19;
+    .btn:hover {
+      opacity: 0.9;
     }
 
-    .buy-now-btn:nth-of-type(2) {
-      right: 110px;
+    .book-btn {
       background-color: #4caf50;
     }
 
@@ -110,15 +115,78 @@
 
   <header>
     Ramesh Enterprises™
-    <a href="delivery.html" class="buy-now-btn">🛒 Buy Now</a>
-    <a href="ramesh-book.html" class="buy-now-btn" style="right: 110px; background-color: #4caf50;">
-      📘 Book
-    </a>
+    <div class="header-buttons">
+      <a href="ramesh-book.html" class="btn book-btn">📘 Book</a>
+      <a href="delivery.html" class="btn buy-btn">🛒 Buy Now</a>
+    </div>
   </header>
 
-  <!-- Remaining content untouched -->
-  <!-- ... -->
-  
+  <section>
+    <h2>About Us</h2>
+    <p>Ramesh Enterprises™ is a multifaceted Indian brand committed to delivering innovative products, vibrant community experiences, and culturally inspired campaigns across diverse sectors. Our mission is to spark joy, foster connection, and celebrate everyday excellence.</p>
+
+    <img src="https://static.wixstatic.com/media/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png/v1/fill/w_480,h_720,al_c,lg_1,q_85,enc_avif,quality_auto/7aa725_7550c4d1743b4b559dd146afc38fedec~mv2.png" 
+         alt="Ramesh About Us" class="about-image" />
+  </section>
+
+  <section>
+    <h2>Products</h2>
+    <p>Our products aren't just items—they're extensions of lifestyle, tradition, and modern expression.</p>
+    <div class="product-gallery">
+      <img src="https://static.wixstatic.com/media/7aa725_b8c01dafcbff4e9c81cdd304388c6f12~mv2.png" alt="Product 1" />
+      <img src="https://static.wixstatic.com/media/7aa725_1bb1e81aa9bf432d982dace4f53e54fc~mv2.png" alt="Product 2" />
+      <img src="https://static.wixstatic.com/media/7aa725_af4af749858147c2acf6329189f1f1ed~mv2.png" alt="Product 3" />
+      <img src="https://static.wixstatic.com/media/7aa725_d218aa63693c4f14b29f3b3395bd9a1a~mv2.png" alt="Product 4" />
+      <img src="https://static.wixstatic.com/media/7aa725_e9125f5b9ca1425d81de129d7fa40650~mv2.png" alt="Product 5" />
+      <img src="https://static.wixstatic.com/media/7aa725_f5e9b2fd768948aab8a06cbadff8ccc7~mv2.png" alt="Product 6" />
+      <img src="https://static.wixstatic.com/media/7aa725_bebbcae2ac2a4b1a909fee01321b5ece~mv2.png" alt="Product 7" />
+      <img src="https://static.wixstatic.com/media/7aa725_63ad96e1ef7c41948fb3828df16426d4~mv2.png" alt="Product 8" />
+      <img src="https://i.ibb.co/rG67BwZN/Screenshot-2025-07-26-195345.png" alt="Product 9" />
+      <img src="https://i.ibb.co/QvTCjtSr/Screenshot-2025-07-26-195644.png" alt="Product 10" />
+    </div>
+  </section>
+
+  <section>
+    <h2>Menu - Ramesh Restaurants™</h2>
+    <h3>The Signature Dosa Series:</h3>
+    <ul>
+      <li>Classic Golden Dosa</li>
+      <li>Paneer Masala Dosa</li>
+      <li>The Evening Legend Dosa</li>
+    </ul>
+    <h3>Main Courses:</h3>
+    <ul>
+      <li>Ramesh’s Mango Pulav</li>
+      <li>Rickshaw Rider Thali</li>
+      <li>Bullock Cart Biryani</li>
+    </ul>
+    <h3>Drinks:</h3>
+    <ul>
+      <li>Ramein Gainz Protein Shake</li>
+      <li>Lemon Shikanji</li>
+      <li>Mango Lassi Supreme™</li>
+    </ul>
+    <h3>Desserts:</h3>
+    <ul>
+      <li>Lorry-Wheel Jalebi</li>
+      <li>Rasmalai Royale</li>
+      <li>Ramesh’s Rasgulla Rampage</li>
+    </ul>
+    <h3>Extras:</h3>
+    <ul>
+      <li>Chutney Flight</li>
+      <li>Sambhar Shot</li>
+      <li>Dosa Fold Customization</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p><strong>Phone:</strong> 99785-RAMESH</p>
+    <p><strong>Address:</strong> Ramesh Enterprises, Chitapalli Road</p>
+    <p><strong>Discord:</strong> <a href="https://discord.gg/WVnuXUabzg" target="_blank">Join our Discord</a></p>
+  </section>
+
   <!-- ✅ Tawk.to Live Chat Widget -->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
