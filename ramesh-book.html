@@ -12,6 +12,7 @@
       margin: 0;
       padding: 0;
     }
+
     .container {
       max-width: 800px;
       margin: auto;
@@ -22,27 +23,33 @@
       margin-top: 30px;
       margin-bottom: 30px;
     }
+
     h1, h2 {
       text-align: center;
       color: #bf360c;
     }
+
     h1 {
       font-size: 2.5em;
     }
+
     h2 {
       font-size: 1.6em;
       margin-top: 2em;
     }
+
     p {
       font-size: 1.1em;
       line-height: 1.8;
       margin-bottom: 20px;
     }
+
     .truck {
       text-align: center;
       font-size: 2em;
       margin: 20px 0;
     }
+
     .footer {
       text-align: center;
       margin-top: 40px;
@@ -50,9 +57,32 @@
       font-size: 1.2em;
       color: #d84315;
     }
+
+    /* Go Back button styles */
+    .go-back-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #bf360c;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .go-back-btn:hover {
+      background-color: #d84315;
+    }
   </style>
 </head>
 <body>
+
+  <button class="go-back-btn" onclick="history.back()">← Go Back</button>
+
   <div class="container">
     <h1>How to Be Successful</h1>
     <h2>By Ramesh (owner of Ramesh Enterprises, CEO of Life Advice)</h2>
