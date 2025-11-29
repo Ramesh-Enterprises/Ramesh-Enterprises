@@ -1,63 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Downloads - Ramesh Enterprises</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            text-align: center;
-            padding: 40px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramesh Enterprises – Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #eef2ff, #c7d2fe);
+      color: #1f2937;
+      text-align: center;
+      padding-bottom: 40px;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 25px;
-            font-size: 18px;
-            border-radius: 8px;
-            background: #3b82f6;
-            color: white;
-            text-decoration: none;
-            margin: 20px;
-            transition: 0.3s;
-        }
+    header {
+      background-color: #1f2937;
+      color: white;
+      padding: 1rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      position: relative;
+    }
 
-        .btn:hover {
-            background: #2563eb;
-        }
+    .home-btn {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #4f46e5;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-        .top-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 6px;
-            background: #10b981;
-        }
+    .home-btn:hover {
+      opacity: 0.85;
+    }
 
-        .top-btn:hover {
-            background: #059669;
-        }
-    </style>
+    h2 {
+      margin-top: 30px;
+      font-size: 2rem;
+      color: #312e81;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    .game-card {
+      background: white;
+      width: 320px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+
+    .download-btn, .play-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      color: white;
+    }
+
+    .download-btn {
+      background-color: #ef4444;
+    }
+    .download-btn:hover { opacity: 0.9; }
+
+    .play-btn {
+      background-color: #10b981;
+    }
+    .play-btn:hover { opacity: 0.9; }
+
+  </style>
 </head>
 <body>
 
-    <!-- Home Button -->
-    <a class="btn top-btn" href="index.html">Home</a>
+  <header>
+    Games – Ramesh Enterprises™
+    <a href="index.html" class="home-btn">🏠 Home</a>
+  </header>
 
-    <h1>Downloads</h1>
 
-    <!-- File 1 -->
-    <a class="btn" href="https://ufile.io/zvsts9o8" target="_blank">
-        A1 - Parking Game
+  <!-- 🔻 SECTION 1: DOWNLOADABLE GAMES -->
+  <h2 class="section-title">⬇ Downloadable Games</h2>
+
+  <div class="game-card">
+    <h3>🚗 A1 – Parking Game</h3>
+    <a href="https://ufile.io/zvsts9o8" target="_blank" class="download-btn">
+      ⬇ Download ZIP
     </a>
+  </div>
 
-    <!-- File 2 -->
-    <a class="btn" href="https://ufile.io/v8fpiis1" target="_blank">
-        Ramesh Enterprises - Paper Minecraft
+  <div class="game-card">
+    <h3>⛏ Ramesh Enterprises – Paper Minecraft</h3>
+    <a href="https://ufile.io/v8fpiis1" target="_blank" class="download-btn">
+      ⬇ Download ZIP
     </a>
+  </div>
+
+
+  <!-- 🔻 SECTION 2: PLAY ONLINE GAMES -->
+  <h2 class="section-title">▶ Play Online (Web Games)</h2>
+
+  <div class="game-card">
+    <h3>🚗 A1 – Parking Game</h3>
+    <a href="https://ramesh-enterprises.itch.io/a1-parking-game" target="_blank" class="play-btn">
+      ▶ Play Online
+    </a>
+  </div>
+
+  <div class="game-card">
+    <h3>⛏ Ramesh Enterprises – Paper Minecraft</h3>
+    <a href="https://ramesh-enterprises.itch.io/ramesh-enterprises-paper-minecraft" target="_blank" class="play-btn">
+      ▶ Play Online
+    </a>
+  </div>
+
 
 </body>
 </html>
