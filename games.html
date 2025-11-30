@@ -39,9 +39,7 @@
       transition: 0.3s;
     }
 
-    .home-btn:hover {
-      opacity: 0.85;
-    }
+    .home-btn:hover { opacity: 0.85; }
 
     h2 {
       margin-top: 30px;
@@ -80,18 +78,22 @@
       font-weight: bold;
       transition: 0.3s;
       color: white;
+      margin-right: 6px;
+      margin-left: 6px;
     }
 
-    .download-btn {
-      background-color: #ef4444;
-    }
+    .download-btn { background-color: #ef4444; }
     .download-btn:hover { opacity: 0.9; }
 
-    .play-btn {
-      background-color: #10b981;
-    }
+    .play-btn { background-color: #10b981; }
     .play-btn:hover { opacity: 0.9; }
 
+    .coming-soon {
+      margin-top: 10px;
+      color: #6b7280;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -102,41 +104,46 @@
   </header>
 
 
-  <!-- 🔻 SECTION 1: DOWNLOADABLE GAMES -->
-  <h2 class="section-title">⬇ Downloadable Games</h2>
+  <h2 class="section-title">🎮 All Games</h2>
 
+  <!-- A1 Parking Game -->
   <div class="game-card">
     <h3>🚗 A1 – Parking Game</h3>
+
     <a href="https://ufile.io/zvsts9o8" target="_blank" class="download-btn">
-      ⬇ Download ZIP
+      ⬇ Download
     </a>
-  </div>
 
-  <div class="game-card">
-    <h3>⛏ Ramesh Enterprises – Paper Minecraft</h3>
-    <a href="https://ufile.io/v8fpiis1" target="_blank" class="download-btn">
-      ⬇ Download ZIP
-    </a>
-  </div>
-
-
-  <!-- 🔻 SECTION 2: PLAY ONLINE GAMES -->
-  <h2 class="section-title">▶ Play Online (Web Games)</h2>
-
-  <div class="game-card">
-    <h3>🚗 A1 – Parking Game</h3>
     <a href="https://ramesh-enterprises.itch.io/a1-parking-game" target="_blank" class="play-btn">
-      ▶ Play Online
+      ▶ Play Web Version
     </a>
   </div>
 
+
+  <!-- Paper Minecraft -->
   <div class="game-card">
     <h3>⛏ Ramesh Enterprises – Paper Minecraft</h3>
+
+    <a href="https://ufile.io/v8fpiis1" target="_blank" class="download-btn">
+      ⬇ Download
+    </a>
+
     <a href="https://ramesh-enterprises.itch.io/ramesh-enterprises-paper-minecraft" target="_blank" class="play-btn">
-      ▶ Play Online
+      ▶ Play Web Version
     </a>
   </div>
 
+
+  <!-- NEW: A1 – 3D Version -->
+  <div class="game-card">
+    <h3>🏎️ A1 – 3D Version</h3>
+
+    <a href="https://ramesh-enterprises.itch.io/a1-3d-version" target="_blank" class="play-btn">
+      ▶ Play Web Version
+    </a>
+
+    <div class="coming-soon">📱 App version coming soon…</div>
+  </div>
 
 </body>
 </html>
