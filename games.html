@@ -41,9 +41,9 @@
     }
     .home-btn:hover { opacity: 0.85; }
 
+    /* Search Bar */
     .search-box {
       margin-top: 25px;
-      margin-bottom: -10px;
     }
 
     #searchInput {
@@ -58,18 +58,21 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.15);
       transition: 0.25s;
     }
-
     #searchInput:focus {
       border-color: #4338ca;
       transform: scale(1.03);
     }
 
-    .section-title {
+    .category-title {
       margin-top: 40px;
-      font-size: 1.7rem;
-      font-weight: 600;
+      font-size: 1.8rem;
+      font-weight: 700;
       color: #1e3a8a;
       text-decoration: underline;
+    }
+
+    .category-section {
+      margin-top: 10px;
     }
 
     .game-card {
@@ -81,13 +84,10 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.15);
       transition: 0.3s;
     }
-
     .game-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 6px 16px rgba(0,0,0,0.20);
     }
-
-    h3 { margin-bottom: 10px; }
 
     .download-btn, .play-btn {
       display: inline-block;
@@ -98,15 +98,19 @@
       font-weight: bold;
       transition: 0.3s;
       color: white;
-      margin-right: 6px;
-      margin-left: 6px;
+      margin-left: 5px;
+      margin-right: 5px;
     }
 
-    .download-btn { background-color: #ef4444; }
-    .download-btn:hover { opacity: 0.9; }
-
-    .play-btn { background-color: #10b981; }
-    .play-btn:hover { opacity: 0.9; }
+    .download-btn {
+      background-color: #ef4444;
+    }
+    .play-btn {
+      background-color: #10b981;
+    }
+    .download-btn:hover, .play-btn:hover {
+      opacity: 0.9;
+    }
 
     .coming-soon {
       margin-top: 10px;
@@ -114,61 +118,86 @@
       font-size: 0.9rem;
       font-style: italic;
     }
+
   </style>
 </head>
 <body>
 
-  <header>
-    Games – Ramesh Enterprises™
-    <a href="index.html" class="home-btn">🏠 Home</a>
-  </header>
+<header>
+  Games – Ramesh Enterprises™
+  <a href="index.html" class="home-btn">🏠 Home</a>
+</header>
 
-  <!-- 🔍 SEARCH BAR -->
-  <div class="search-box">
-    <input id="searchInput" type="text" placeholder="Search games…">
-  </div>
+<!-- 🔍 SEARCH BAR -->
+<div class="search-box">
+  <input id="searchInput" type="text" placeholder="Search games…">
+</div>
 
-  <h2 class="section-title">🎮 All Games</h2>
+<!-- CATEGORY: A1 GAMES -->
+<h2 class="category-title">🏎️ A1 Games</h2>
+<div id="category-a1" class="category-section">
 
-  <!-- A1 Parking Game -->
   <div class="game-card">
     <h3 class="game-title">A1 – Parking Game</h3>
-
     <a href="https://ufile.io/zvsts9o8" target="_blank" class="download-btn">⬇ Download</a>
     <a href="https://ramesh-enterprises.itch.io/a1-parking-game" target="_blank" class="play-btn">▶ Play Web Version</a>
   </div>
 
-  <!-- Paper Minecraft -->
-  <div class="game-card">
-    <h3 class="game-title">Ramesh Enterprises – Paper Minecraft</h3>
-
-    <a href="https://ufile.io/v8fpiis1" target="_blank" class="download-btn">⬇ Download</a>
-    <a href="https://ramesh-enterprises.itch.io/ramesh-enterprises-paper-minecraft" target="_blank" class="play-btn">▶ Play Web Version</a>
-  </div>
-
-  <!-- A1 – 3D -->
   <div class="game-card">
     <h3 class="game-title">A1 – 3D Version</h3>
-
     <a href="https://ramesh-enterprises.itch.io/a1-3d-version" target="_blank" class="play-btn">▶ Play Web Version</a>
     <div class="coming-soon">📱 App version coming soon…</div>
   </div>
 
+</div>
+
+
+<!-- CATEGORY: RAMESH CRAFT -->
+<h2 class="category-title">⛏ Ramesh Craft</h2>
+<div id="category-rameshcraft" class="category-section">
+
+  <div class="game-card">
+    <h3 class="game-title">Ramesh Enterprises – Paper Minecraft</h3>
+    <a href="https://ufile.io/v8fpiis1" target="_blank" class="download-btn">⬇ Download</a>
+    <a href="https://ramesh-enterprises.itch.io/ramesh-enterprises-paper-minecraft" target="_blank" class="play-btn">▶ Play Web Version</a>
+  </div>
+
+</div>
+
+
+
+<!-- 🔍 SEARCH SCRIPT -->
 <script>
-  // LIVE SEARCH FUNCTION
-  document.getElementById("searchInput").addEventListener("keyup", function() {
-    let filter = this.value.toLowerCase();
-    let cards = document.getElementsByClassName("game-card");
+  const searchInput = document.getElementById("searchInput");
 
-    for (let i = 0; i < cards.length; i++) {
-      let title = cards[i].querySelector(".game-title").innerText.toLowerCase();
+  searchInput.addEventListener("keyup", function() {
+    let filter = searchInput.value.toLowerCase();
 
-      if (title.includes(filter)) {
-        cards[i].style.display = "";
-      } else {
-        cards[i].style.display = "none";
+    const categories = [
+      { section: "category-a1" },
+      { section: "category-rameshcraft" }
+    ];
+
+    categories.forEach(cat => {
+      let section = document.getElementById(cat.section);
+      let cards = section.getElementsByClassName("game-card");
+
+      let visibleCount = 0;
+
+      for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector(".game-title").innerText.toLowerCase();
+
+        if (title.includes(filter)) {
+          cards[i].style.display = "";
+          visibleCount++;
+        } else {
+          cards[i].style.display = "none";
+        }
       }
-    }
+
+      // Hide category if empty
+      section.style.display = visibleCount > 0 ? "" : "none";
+    });
   });
 </script>
 
