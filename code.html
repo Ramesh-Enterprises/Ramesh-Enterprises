@@ -1,5 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Code Claim</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background: #020617;
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #22c55e;
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:disabled {
+            background: #64748b;
+            cursor: not-allowed;
+        }
+
+        .code {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-top: 15px;
+            color: #38bdf8;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #e5e7eb;
+        }
+
+        .timer {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>🎁 Weekly Code Claim</h1>
+
+    <button id="claimBtn" onclick="claimCode()">Claim Code</button>
+
+    <div id="codeDisplay" class="code"></div>
+    <div id="infoText" class="info"></div>
+    <div id="timerText" class="timer"></div>
+</div>
+
 <script>
-    const CLAIM_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+    const CLAIM_DURATION = 7 * 24 * 60 * 60 * 1000; // 7 days
     const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     const claimBtn = document.getElementById("claimBtn");
@@ -16,19 +98,25 @@
     }
 
     function claimCode() {
-        // BLOCK if already redeemed
-        if (localStorage.getItem("hasRedeemed") === "true") {
-            alert("❌ You have already claimed a code.");
-            return;
+        const lastClaimTime = localStorage.getItem("claimTime");
+
+        if (lastClaimTime) {
+            const now = Date.now();
+            const timePassed = now - parseInt(lastClaimTime);
+
+            if (timePassed < CLAIM_DURATION) {
+                alert("❌ You can claim only one code every 7 days.");
+                return;
+            }
         }
 
         const code = generateCode(10);
+
         codeDisplay.textContent = code;
-        infoText.textContent = "📩 Send this code to Ramesh to claim your role.";
+        infoText.textContent = "📩 Send this code to Ramesh to claim your prize.";
 
         localStorage.setItem("claimCode", code);
         localStorage.setItem("claimTime", Date.now());
-        localStorage.setItem("hasRedeemed", "true"); // 🔒 permanent lock
 
         claimBtn.disabled = true;
         startTimer();
@@ -43,35 +131,42 @@
             const timeLeft = (parseInt(claimTime) + CLAIM_DURATION) - now;
 
             if (timeLeft <= 0) {
-                timerText.textContent = "✅ Code expired. You cannot claim another one.";
+                timerText.textContent = "✅ You can now claim a new code!";
+                claimBtn.disabled = false;
                 return;
             }
 
-            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
             const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
             const seconds = Math.floor((timeLeft / 1000) % 60);
 
             timerText.textContent =
-                `⏰ Code expires in: ${hours}h ${minutes}m ${seconds}s`;
+                `⏰ Next claim in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
 
         updateTimer();
         setInterval(updateTimer, 1000);
     }
 
-    // Restore state after refresh
     window.onload = () => {
         const savedCode = localStorage.getItem("claimCode");
-        const hasRedeemed = localStorage.getItem("hasRedeemed") === "true";
+        const claimTime = localStorage.getItem("claimTime");
 
         if (savedCode) {
             codeDisplay.textContent = savedCode;
-            infoText.textContent = "📩 Send this code to Ramesh to claim your role.";
-            startTimer();
+            infoText.textContent = "📩 Send this code to Ramesh to claim your prize.";
         }
 
-        if (hasRedeemed) {
-            claimBtn.disabled = true;
+        if (claimTime) {
+            const timePassed = Date.now() - parseInt(claimTime);
+            if (timePassed < CLAIM_DURATION) {
+                claimBtn.disabled = true;
+                startTimer();
+            }
         }
     };
 </script>
+
+</body>
+</html>
