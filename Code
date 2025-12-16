@@ -1,100 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ramesh Code Generator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 40px;
-      background: #f4f4f4;
-    }
-    h1 {
-      margin-bottom: 10px;
-    }
-    #code {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 15px 0;
-      color: #333;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 5px;
-    }
-    #message, #redeem-result {
-      margin-top: 10px;
-      color: #555;
-    }
-    #redeem-section {
-      margin-top: 40px;
-      padding: 20px;
-      background: #fff;
-      display: inline-block;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    #redeem-code {
-      padding: 8px;
-      width: 220px;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Discord Role Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .box {
+            background: #020617;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #38bdf8;
+            color: #020617;
+            margin-top: 15px;
+        }
+
+        button:disabled {
+            background: #475569;
+            cursor: not-allowed;
+        }
+
+        .role {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .timer {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #facc15;
+        }
+    </style>
 </head>
 <body>
-  <h1>Ramesh Code Generator</h1>
 
-  <button onclick="generateCode()">Generate Code</button>
+<div class="box">
+    <h2>🎲 Random Discord Role</h2>
 
-  <div id="code"></div>
-  <div id="message"></div>
+    <button id="claimBtn" onclick="claimRole()">Claim Role</button>
 
-  <div id="redeem-section">
-    <h2>Redeem Your Code</h2>
-    <input type="text" id="redeem-code" placeholder="Enter your code here" />
-    <button onclick="redeemCode()">Redeem</button>
-    <div id="redeem-result"></div>
-  </div>
+    <div class="role" id="roleDisplay"></div>
+    <div class="info" id="infoText"></div>
+    <div class="timer" id="timerText"></div>
+</div>
 
-  <script>
-    let lastGeneratedCode = null;
-
-    function generateCode() {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-      let result = '';
-      for (let i = 0; i < 10; i++) {
-        const randIndex = Math.floor(Math.random() * chars.length); // uses Math.random and Math.floor
-        result += chars.charAt(randIndex);
-      }
-
-      lastGeneratedCode = result;
-
-      const codeEl = document.getElementById('code');
-      const msgEl = document.getElementById('message');
-
-      codeEl.textContent = result;
-      msgEl.textContent = 'Your code has been generated! You can redeem it in the box below to claim a Discord role.';
-    }
-
-    function redeemCode() {
-      const inputCode = document.getElementById('redeem-code').value.trim();
-      const resultEl = document.getElementById('redeem-result');
-
-      if (!inputCode) {
-        resultEl.textContent = 'Please enter a code first.';
-        return;
-      }
-
-      // Optional: only accept the last generated code
-      if (inputCode !== lastGeneratedCode) {
-        resultEl.textContent = 'Invalid code. Please generate a new one and try again.';
-        return;
-      }
-
-      const roles = [
+<script>
+    const roles = [
         '✨ Ultra VIP Member',
         '🛡️ Server Guardian',
         '🎮 Pro Gamer',
@@ -104,14 +81,78 @@
         '🎧 Voice Chat Hero',
         '🧠 Big Brain',
         '🚀 Speedrunner',
-        '🎨 Design Wizard'
-      ];
+        '🎨 Design Wizard',
+        '👑 Server Royalty',
+        '💎 Diamond Member',
+        '⚔️ PvP Champion',
+        '🎵 Music Maestro',
+        '🖥️ Tech Wizard',
+        '🏆 Tournament Winner',
+        '🤝 Community Helper',
+        '🔥 Hype Machine'
+    ];
 
-      const randomIndex = Math.floor(Math.random() * roles.length); // random item from array
-      const randomRole = roles[randomIndex];
+    const CLAIM_DURATION = 24 * 60 * 60 * 1000; // 24 hours
 
-      resultEl.textContent = 'Congrats! You can get the Discord role: ' + randomRole;
+    const claimBtn = document.getElementById("claimBtn");
+    const roleDisplay = document.getElementById("roleDisplay");
+    const infoText = document.getElementById("infoText");
+    const timerText = document.getElementById("timerText");
+
+    function claimRole() {
+        const role = roles[Math.floor(Math.random() * roles.length)];
+        roleDisplay.textContent = role;
+        infoText.textContent = "📩 Send this role to Ramesh to claim it.";
+        
+        const claimTime = Date.now();
+        localStorage.setItem("claimedRole", role);
+        localStorage.setItem("claimTime", claimTime);
+
+        claimBtn.disabled = true;
+        startTimer();
     }
-  </script>
+
+    function startTimer() {
+        const claimTime = localStorage.getItem("claimTime");
+        if (!claimTime) return;
+
+        function updateTimer() {
+            const now = Date.now();
+            const timeLeft = (parseInt(claimTime) + CLAIM_DURATION) - now;
+
+            if (timeLeft <= 0) {
+                localStorage.removeItem("claimedRole");
+                localStorage.removeItem("claimTime");
+                timerText.textContent = "⏳ You can claim a new role now!";
+                claimBtn.disabled = false;
+                return;
+            }
+
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+            const seconds = Math.floor((timeLeft / 1000) % 60);
+
+            timerText.textContent =
+                `⏰ Time left: ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    }
+
+    // Restore state on refresh
+    window.onload = () => {
+        const claimedRole = localStorage.getItem("claimedRole");
+        const claimTime = localStorage.getItem("claimTime");
+
+        if (claimedRole && claimTime) {
+            roleDisplay.textContent = claimedRole;
+            infoText.textContent = "📩 Send this role to Ramesh to claim it.";
+            claimBtn.disabled = true;
+            startTimer();
+        }
+    };
+</script>
+
 </body>
 </html>
