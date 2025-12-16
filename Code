@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ramesh Code Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 40px;
+      background: #f4f4f4;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    #code {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    #message, #redeem-result {
+      margin-top: 10px;
+      color: #555;
+    }
+    #redeem-section {
+      margin-top: 40px;
+      padding: 20px;
+      background: #fff;
+      display: inline-block;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    #redeem-code {
+      padding: 8px;
+      width: 220px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ramesh Code Generator</h1>
+
+  <button onclick="generateCode()">Generate Code</button>
+
+  <div id="code"></div>
+  <div id="message"></div>
+
+  <div id="redeem-section">
+    <h2>Redeem Your Code</h2>
+    <input type="text" id="redeem-code" placeholder="Enter your code here" />
+    <button onclick="redeemCode()">Redeem</button>
+    <div id="redeem-result"></div>
+  </div>
+
+  <script>
+    let lastGeneratedCode = null;
+
+    function generateCode() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let result = '';
+      for (let i = 0; i < 10; i++) {
+        const randIndex = Math.floor(Math.random() * chars.length); // uses Math.random and Math.floor
+        result += chars.charAt(randIndex);
+      }
+
+      lastGeneratedCode = result;
+
+      const codeEl = document.getElementById('code');
+      const msgEl = document.getElementById('message');
+
+      codeEl.textContent = result;
+      msgEl.textContent = 'Your code has been generated! You can redeem it in the box below to claim a Discord role.';
+    }
+
+    function redeemCode() {
+      const inputCode = document.getElementById('redeem-code').value.trim();
+      const resultEl = document.getElementById('redeem-result');
+
+      if (!inputCode) {
+        resultEl.textContent = 'Please enter a code first.';
+        return;
+      }
+
+      // Optional: only accept the last generated code
+      if (inputCode !== lastGeneratedCode) {
+        resultEl.textContent = 'Invalid code. Please generate a new one and try again.';
+        return;
+      }
+
+      const roles = [
+        '✨ Ultra VIP Member',
+        '🛡️ Server Guardian',
+        '🎮 Pro Gamer',
+        '🎓 Quiz Master',
+        '🔥 OG Member',
+        '🌟 Legendary Supporter',
+        '🎧 Voice Chat Hero',
+        '🧠 Big Brain',
+        '🚀 Speedrunner',
+        '🎨 Design Wizard'
+      ];
+
+      const randomIndex = Math.floor(Math.random() * roles.length); // random item from array
+      const randomRole = roles[randomIndex];
+
+      resultEl.textContent = 'Congrats! You can get the Discord role: ' + randomRole;
+    }
+  </script>
+</body>
+</html>
