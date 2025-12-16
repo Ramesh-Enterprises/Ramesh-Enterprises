@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Discord Role Generator</title>
+    <title>Discord Role Claim Code</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,7 +19,7 @@
             background: #020617;
             padding: 30px;
             border-radius: 12px;
-            width: 350px;
+            width: 360px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
@@ -39,10 +39,12 @@
             cursor: not-allowed;
         }
 
-        .role {
+        .code {
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
+            letter-spacing: 2px;
+            color: #facc15;
         }
 
         .info {
@@ -54,58 +56,46 @@
         .timer {
             margin-top: 15px;
             font-size: 16px;
-            color: #facc15;
+            color: #22c55e;
         }
     </style>
 </head>
 <body>
 
 <div class="box">
-    <h2>🎲 Random Discord Role</h2>
+    <h2>🎲 Claim Your Discord Role</h2>
 
-    <button id="claimBtn" onclick="claimRole()">Claim Role</button>
+    <button id="claimBtn" onclick="claimCode()">Generate Code</button>
 
-    <div class="role" id="roleDisplay"></div>
+    <div class="code" id="codeDisplay"></div>
     <div class="info" id="infoText"></div>
     <div class="timer" id="timerText"></div>
 </div>
 
 <script>
-    const roles = [
-        '✨ Ultra VIP Member',
-        '🛡️ Server Guardian',
-        '🎮 Pro Gamer',
-        '🎓 Quiz Master',
-        '🔥 OG Member',
-        '🌟 Legendary Supporter',
-        '🎧 Voice Chat Hero',
-        '🧠 Big Brain',
-        '🚀 Speedrunner',
-        '🎨 Design Wizard',
-        '👑 Server Royalty',
-        '💎 Diamond Member',
-        '⚔️ PvP Champion',
-        '🎵 Music Maestro',
-        '🖥️ Tech Wizard',
-        '🏆 Tournament Winner',
-        '🤝 Community Helper',
-        '🔥 Hype Machine'
-    ];
-
     const CLAIM_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+    const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     const claimBtn = document.getElementById("claimBtn");
-    const roleDisplay = document.getElementById("roleDisplay");
+    const codeDisplay = document.getElementById("codeDisplay");
     const infoText = document.getElementById("infoText");
     const timerText = document.getElementById("timerText");
 
-    function claimRole() {
-        const role = roles[Math.floor(Math.random() * roles.length)];
-        roleDisplay.textContent = role;
-        infoText.textContent = "📩 Send this role to Ramesh to claim it.";
-        
+    function generateCode(length = 10) {
+        let code = "";
+        for (let i = 0; i < length; i++) {
+            code += LETTERS.charAt(Math.floor(Math.random() * LETTERS.length));
+        }
+        return code;
+    }
+
+    function claimCode() {
+        const code = generateCode(10);
+        codeDisplay.textContent = code;
+        infoText.textContent = "📩 Send this code to Ramesh to claim your role.";
+
         const claimTime = Date.now();
-        localStorage.setItem("claimedRole", role);
+        localStorage.setItem("claimCode", code);
         localStorage.setItem("claimTime", claimTime);
 
         claimBtn.disabled = true;
@@ -121,9 +111,11 @@
             const timeLeft = (parseInt(claimTime) + CLAIM_DURATION) - now;
 
             if (timeLeft <= 0) {
-                localStorage.removeItem("claimedRole");
+                localStorage.removeItem("claimCode");
                 localStorage.removeItem("claimTime");
-                timerText.textContent = "⏳ You can claim a new role now!";
+                timerText.textContent = "⏳ You can generate a new code now!";
+                codeDisplay.textContent = "";
+                infoText.textContent = "";
                 claimBtn.disabled = false;
                 return;
             }
@@ -140,14 +132,14 @@
         setInterval(updateTimer, 1000);
     }
 
-    // Restore state on refresh
+    // Restore state after refresh
     window.onload = () => {
-        const claimedRole = localStorage.getItem("claimedRole");
+        const savedCode = localStorage.getItem("claimCode");
         const claimTime = localStorage.getItem("claimTime");
 
-        if (claimedRole && claimTime) {
-            roleDisplay.textContent = claimedRole;
-            infoText.textContent = "📩 Send this role to Ramesh to claim it.";
+        if (savedCode && claimTime) {
+            codeDisplay.textContent = savedCode;
+            infoText.textContent = "📩 Send this code to Ramesh to claim your role.";
             claimBtn.disabled = true;
             startTimer();
         }
